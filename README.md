@@ -8,10 +8,10 @@ Važne komponente DevSecOps-a su: Modelovanje pretnji i procena rizika, Kontinua
 Prilikom bezbednosnih provera postoji priličan broj provera koje je moguće izvršiti, a fokus ovog istraživanja je pregled 4 najbitnije vrste provera, alata koji su dostupni za ove vrste i praktična demonstracija u vidu implementacije <i>pipeline</i>-a i prikaza rada gde se ne detektuje mana (zato što je stvarno nema) i kada se detektuje mana (zato što je stvarno ima).
 
 4 najbitnije vrste bezbednosnih provera pomoću alata su: 
-1.     Provera sadržavanja Git Secrets-a – da li sam source kod sadrži neku tajnu (secret)
-2.     Provera Source code analysis – provera ranjivosti u 3rd party bibliotekama koje softver koji razvijamo koristi
-3.     Static Application Security Testing (SAST) - analiza source koda rešenja koje razvijamo kako bi se pronašle ranjivosti
-4.     Dynamic Application Security Testing (DAST) - simuliranje ponasanja napadaca, izvodi se na serveru koji se koristi za testiranje (nakon deploy-ovanja aplikacije)
+1. Provera sadržavanja <i>Git Secrets</i>-a – da li sam source kod sadrži neku tajnu (secret)
+2. <i>Provera Source code analysis</i> – provera ranjivosti u 3rd party bibliotekama koje softver koji razvijamo koristi
+3. <i>Static Application Security Testing</i> (SAST) - analiza source koda rešenja koje razvijamo kako bi se pronašle ranjivosti
+4. <i>Dynamic Application Security Testing</i> (DAST) - simuliranje ponasanja napadaca, izvodi se na serveru koji se koristi za testiranje (nakon deploy-ovanja aplikacije)
 
 Ono što neće biti fokus ovog istraživanja jeste razvijanje same aplikacije, već će se koristiti bilo koja Java aplikacija. Takođe uprkos postojanju mnoštva build alata, oni se neće obrađivati u ovom radu, već će se koristiti Maven build alat. Razvoj i demonstracija <i>pipeline</i>-a će se obaviti u lokalu (odnosno ručnim pokretanjem na jednom računaru), pravi <i>pipeline</i>-ovi se hostuju na serverima (serveri mogu biti u cloud okruženju ali i on-prem). Pokretanje automatskih testova i izvršavanje manuelnih testova kako bi se proverio rad samog softverskog rešenja koje se razvija nije fokus ovog istraživanja i neće biti implementirano u <i>pipeline</i>-u.
 
@@ -55,14 +55,15 @@ Alati koji bi se istraživali su: <i>SonarQube, Veracode, Checkmarx, Fortify, Co
 DAST predstavlja testiranje u okviru kog se simulira ponašanje napadača, odnosno veb aplikacija se napada spolja. Izvršava se nakon deploy-a aplikacije. Nezavisno je od programskog jezika i korišćenih tehnologija.
 Ranjivosti koje se najčešće otkrivaju na ovaj način su: XSS, SQL injection, CSRF, Denial of service, Arbitrary code execution, Memory corruption, Information disclosure.
 Posmatraju se dve tehnike:
-1.     Web Application Security Testing (WAST)
-2.     Security API Scanning (SAS)
+1. <i>Web Application Security Testing</i> (WAST)
+2. <i>Security API Scanning</i> (SAS)
 WAST je tehnika u okviru koje se aplikacija napada preko korisničkog interfejsa. Izvršava se u 3 koraka:
-1.     Spider scan – vrši se crawling veb aplikacije, da bi se otkrili svi dostupni URL-ovi i resursi, odnosno traži se površina napada veb aplikacije i pravi se reprezentacija strukture aplikacije.
-2.     Active scan – šalju se maliciozni zahtevi za svaki identifikovani resurs i analiziraju se dobijeni odgovori kako bi se utvrdilo da li postoje ranjivosti.
-3.     Result reporting – dobijeni rezultati se agregiraju u izveštaj. Izveštaj treba ručno da se analizira da bi se odbacili false positive-i.
-SAS je tehnika u okviru koje se veb servis napada preko API-ja. Na ovaj način je moguće detaljno testirati svaki endpoint. Glavni cilj je da se identifikuju ranjivosti vezane za autentifikaciju, autorizaciju, validaciju input-a, error handling i sl. Zahtev se API-ju šalje pomoću request komponente. Ona omogućava kreiranje i slanje HTTP zahteva ciljnom API-ju. Svi zahtevi prolaze kroz proxy komponentu koja presreće saobraćaj između request komponente i aplikacije. Ona omogućava inspekciju i izmjenu HTTP zahtjeva i odgovora. Ona evaluira presretnuti saobraćaj radi pronalaska ranjivosti. Nakon obavljenog testa, proxy komponenta kreira izveštaj sa rezultatima evaluacije.
-Alati za DAST su OWASP ZAP i Burp Suite.
+1. <i>Spider scan</i> – vrši se crawling veb aplikacije, da bi se otkrili svi dostupni URL-ovi i resursi, odnosno traži se površina napada veb aplikacije i pravi se reprezentacija strukture aplikacije.
+2. <i>Active scan</i> – šalju se maliciozni zahtevi za svaki identifikovani resurs i analiziraju se dobijeni odgovori kako bi se utvrdilo da li postoje ranjivosti.
+3. <i>Result reporting</i> – dobijeni rezultati se agregiraju u izveštaj. Izveštaj treba ručno da se analizira da bi se odbacili <i>false positive</i>-i.
+
+SAS je tehnika u okviru koje se veb servis napada preko API-ja. Na ovaj način je moguće detaljno testirati svaki <i>endpoint</i>. Glavni cilj je da se identifikuju ranjivosti vezane za autentifikaciju, autorizaciju, validaciju <i>input</i>-a, <i>error handling</i> i sl. Zahtev se API-ju šalje pomoću <i>request</i> komponente. Ona omogućava kreiranje i slanje HTTP zahteva ciljnom API-ju. Svi zahtevi prolaze kroz <i>proxy</i> komponentu koja presreće saobraćaj između <i>request</i> komponente i aplikacije. Ona omogućava inspekciju i izmjenu HTTP zahtjeva i odgovora. Ona evaluira presretnuti saobraćaj radi pronalaska ranjivosti. Nakon obavljenog testa, proxy komponenta kreira izveštaj sa rezultatima evaluacije.
+Alati za DAST su OWASP ZAP i <i>Burp Suite</i>.
 
 ## Literatura:
 Myrbakken, H. and Colomo-Palacios, R., 2017. DevSecOps: <i>a multivocal literature review. In Software Process Improvement and Capability Determination: 17th</i>
