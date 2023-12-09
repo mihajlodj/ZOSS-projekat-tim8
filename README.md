@@ -10,9 +10,9 @@ Fokus ovog projekta će biti izučavanje i upotreba alata koji omogućavaju sled
 3. [<i>Static Application Security Testing</i>](/docs/sast.md) (SAST) - analiza source koda rešenja koje razvijamo kako bi se pronašle ranjivosti
 4. [<i>Dynamic Application Security Testing</i>](/docs/dast.md) (DAST) - simuliranje ponašanja napadača, izvodi se na serveru koji se koristi za testiranje (nakon <i>deploy</i>-ovanja aplikacije)
 
-Ono što neće biti fokus ovog istraživanja jeste razvijanje same aplikacije, već će se koristiti bilo koja Java aplikacija. Takođe, uprkos postojanju mnoštva <i>build</i> alata, oni se neće obrađivati u ovom radu, već će se koristiti Maven <i>build</i> alat. Razvoj i demonstracija <i>pipeline</i>-a će se obaviti u lokalu (odnosno ručnim pokretanjem na jednom računaru), iako se pravi <i>pipeline</i>-ovi se hostuju na serverima (serveri mogu biti u <i>cloud</i> okruženju ali i <i>on-prem</i>). Pokretanje automatskih testova i izvršavanje manuelnih testova kako bi se proverio rad samog softverskog rešenja koje se razvija nije fokus ovog istraživanja i neće biti implementirano u <i>pipeline</i>-u.
+Ono što neće biti fokus ovog istraživanja jeste razvijanje same aplikacije, već će se koristiti bilo koja Java aplikacija. Takođe, uprkos postojanju mnoštva <i>build</i> alata, oni se neće obrađivati u ovom radu, već će se koristiti Maven <i>build</i> alat. Razvoj i demonstracija <i>pipeline</i>-a će se obaviti u lokalu (odnosno ručnim pokretanjem na jednom računaru), iako se pravi <i>pipeline</i>-ovi se <i>host</i>-uju na serverima (serveri mogu biti u <i>cloud</i> okruženju ali i <i>on-prem</i>). Pokretanje automatskih testova i izvršavanje manuelnih testova kako bi se proverio rad samog softverskog rešenja koje se razvija nije fokus ovog istraživanja i neće biti implementirano u <i>pipeline</i>-u.
 
-Nakon završetka rada ova 4 alata izveštaji koji su alati generisani će se <i>upload</i>-ovati u alat <i>Defect Dojo</i> koji prikuplja izveštaje i koristi se za <i>vulnerability management</i> (en: menadžment ranjivosti - to je proaktivni kontinualni proces koji se uspostavlja radi zaštite od <i>cyber</i> napada).
+Nakon završetka ova 4 koraka, izveštaji koji su alati generisani će se <i>upload</i>-ovati u alat <i>Defect Dojo</i> koji prikuplja izveštaje i koristi se za <i>vulnerability management</i> (en: menadžment ranjivosti - to je proaktivni kontinualni proces koji se uspostavlja radi zaštite od <i>cyber</i> napada).
 
 ## Literatura:
 [1]	Kumar, R. and Goyal, R., 2020. <i>Modeling continuous security: A conceptual model for automated DevSecOps using open-source software over cloud (ADOC)</i>. Computers & Security, 97, p.101967.
@@ -21,3 +21,4 @@ Nakon završetka rada ova 4 alata izveštaji koji su alati generisani će se <i>
 
 [3]	Rajapakse, R.N., Zahedi, M., Babar, M.A. and Shen, H., 2022. <i>Challenges and solutions when adopting DevSecOps: A systematic review</i>. Information and software technology, 141, p.106700.
 
+[TODO] Prates, L., Faustino, J., Silva, M. and Pereira, R., 2019. <i>Devsecops metrics. In Information Systems: Research, Development, Applications, Education</i>: 12th SIGSAND/PLAIS EuroSymposium 2019, Gdansk, Poland, September 19, 2019, Proceedings 12 (pp. 77-90). Springer International Publishing.
