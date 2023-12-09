@@ -1,5 +1,5 @@
 ## DAST
-DAST (<i>Dynamic Application Security Testing</i>) predstavlja testiranje u okviru kog se simulira ponašanje napadača, odnosno veb aplikacija se napada spolja. Izvršava se nakon deploy-a aplikacije. Ovakvo testiranje je nezavisno od programskog jezika i korišćenih tehnologija.
+DAST (<i>Dynamic Application Security Testing</i>) predstavlja testiranje u okviru kog se simulira ponašanje napadača, odnosno veb aplikacija se napada spolja. Izvršava se nakon <i>deploy</i>-a aplikacije. Ovakvo testiranje je nezavisno od programskog jezika i korišćenih tehnologija.
 Ranjivosti koje se najčešće otkrivaju na ovaj način su: <i>Cross Site Scripting</i> (XSS), <i>SQL Injection</i>, <i>Cross-Site Request Forgery</i> (CSRF), <i>Denial of Service</i> (DOS), korupcija memorije i izlaganje osetljivih informacija [1].
 
 Posmatraju se dve tehnike:
@@ -17,7 +17,7 @@ Tok aktivnosti u okviru WAST tehnike je prikazan na slici [2].
 
 SAS je tehnika u okviru koje se veb servis napada preko API-a. Na ovaj način je moguće detaljno testirati svaki <i>endpoint</i>. Glavni cilj je da se identifikuju ranjivosti vezane za autentifikaciju, autorizaciju, validaciju ulaza, <i>error handling</i> i sl. HTTP zahtev se šalje API-u  pomoću <i>request</i> komponente. Svi HTTP zahtevi prolaze kroz <i>proxy</i> komponentu koja presreće saobraćaj između <i>request</i> komponente i aplikacije. Ona omogućava inspekciju i izmenu HTTP zahteva i odgovora, te evaluira presretnuti saobraćaj radi pronalaska ranjivosti. Nakon obavljenog testa, <i>proxy</i> komponenta kreira izveštaj sa rezultatima evaluacije [2].
 
-Tok aktivnosti u okviru SAS tehnike je prikazan na slici.
+Tok aktivnosti u okviru SAS tehnike je prikazan na slici [2].
 
 ![SAS graph](/docs/images/sas.png)
 
@@ -29,6 +29,3 @@ Najčešće korišćeni alati za implementaciju DAST-a su OWASP ZAP i <i>Burp Su
 [2]	Rangnau, T., Buijtenen, R.V., Fransen, F. and Turkmen, F., 2020, October. </i>Continuous security testing: A case study on integrating dynamic security testing tools in ci/cd pipelines</i>. In 2020 IEEE 24th International Enterprise Distributed Object Computing Conference (EDOC) (pp. 145-154). IEEE.
 
 [TODO] Mateo Tudela, F., Bermejo Higuera, J.R., Bermejo Higuera, J., Sicilia Montalvo, J.A. and Argyros, M.I., 2020. <i>On Combining Static, Dynamic and Interactive Analysis Security Testing Tools to Improve OWASP Top Ten Security Vulnerability Detection in Web Applications</i>. Applied Sciences, 10(24), p.9119.
-
-[TODO] Prates, L., Faustino, J., Silva, M. and Pereira, R., 2019. <i>Devsecops metrics. In Information Systems: Research, Development, Applications, Education</i>: 12th SIGSAND/PLAIS EuroSymposium 2019, Gdansk, Poland, September 19, 2019, Proceedings 12 (pp. 77-90). Springer International Publishing.
-
