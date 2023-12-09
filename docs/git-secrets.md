@@ -9,4 +9,4 @@ Jedna od najbitnijih praksi jeste automatizacija pronalaženja tajni u kodu. Iak
 Alati koji služe za automatizaciju pronalaženja tajni (i ostalog) su: <i>GitGuardian</i> (<i>ggshield</i> - CLI API za <i>GitGuardian</i>), <i>GitLeaks</i>, <i>Trufflehog</i>, <i>GitRob</i>, <i>GitWatchman</i>, itd.
 
 ## Literatura
-[1] <i>Secrets management cheatsheet - OWASP cheatsheet series</i>: https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html (poslednji pristup stranici: 8.12.2023.)
+[1] OWASP Cheatsheet series, (n.d.), Cheatsheet series, owasp.org <i>Secrets management cheatsheet - OWASP cheatsheet series</i>: https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html

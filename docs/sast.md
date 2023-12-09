@@ -13,4 +13,4 @@ Alati koji bi se istraživali su: <i>SonarQube, Veracode, Checkmarx, Fortify, Co
 ## Literatura
 [1] Aloraini, B., Nagappan, M., German, D. M., Hayashi, S., & Higo, Y. (2019). An empirical study of security warnings from static application security testing tools. <i>Journal of Systems and Software</i>, 158, 110427.
 
-[2] Garbajosa, J., Wang, X., & Aguiar, A. (Eds.). (2018). Agile Processes in Software Engineering and Extreme Programming: 19th International Conference, XP 2018, Porto, Portugal, May 21–25, 2018, Proceedings.
+[2] Yang, J., Tan, L., Peyton, J., & Duer, K. A. (2019, May). Towards better utilizing static application security testing. In 2019 <i>IEEE/ACM 41st International Conference on Software Engineering: Software Engineering in Practice (ICSE-SEIP)</i> (pp. 51-60). IEEE.
