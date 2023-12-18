@@ -15,6 +15,65 @@ Ručno praćenje svih ovih obaveza je vremenom postalo previše. Često se previ
 
 SCA automatski prati prethodno spomenute obaveze i sve otvorene softvere koje identifikuje ubacuje u BOM (<i>Bill of Materials</i>), koji se zatim upoređuje sa raznim bazama poznatih ranjivosti.
 
+Alati <i>Software Composition Analysis</i>-a:
+Većina ovih alata sadrži sledeće odlike:
+
+- <i>Dependency analysis</i> odnosno analiza zavisnosti. SCA alati automatski skeniraju kod aplikacije zarad kreiranja baze znanja koja se sastoji od <i>open source</i> komponenti, <i>third-party</i> biblioteka kao i od njihovih verzija i zavisnostima. Ovime ovi alati olakšavaju celokupni poregled svih korišćenih projektnih komponenti.
+
+- <i>Vulnerability detection</i> odnosno detekcija ranjivosti. SCA alati vrše proveru ranjivosti zavisnosti i biblioteka aplikacije pomoću pređašnje kreirane baze znanja. Svaki podatak iz baze znanja se upoređuje sa poznatim ranjivostima iz neke CVE baze. Većina SCA alata pored standardne NVD baze poznatih ranjivosti imaju i svoje privatne baze ranjivosti koje redovno ažuriraju.
+
+- <i>License compliance</i> odnosno usklađenosti sa licencama. SCA alati analiziraju licence svih korišćenih <i>open source</i> komponenti. Samim developerima je značajno olakšano pridržavanje svih neophodnih zakonskih zahteva i obaveza.
+
+- <i>Prioritization</i> odnosno određivanje prioriteta. SCA alati na osnovu ozbiljnosti otkrivenih ranjivosti pomažu u određivanju prioriteta rešavanja problema. Ukoliko se problem rešava ažuriranjem verzije zavisnosti većina alata će to ažuriranje i predložiti.
+
+Lista alata koji se bave <i>Software Composition Analysis</i>-om je velika. U nastavku će biti opisani neki od najznačajnijih.
+
+<h1><i>GitHub</i></h1>
+Karakteristike:
+
+- Samostalno kodiranje/održavanje repozitorijuma
+
+- Timsko kodiranje/održavanje repozitorijuma
+
+- Automatizacija i CI/CD
+
+- Obezbeđenje
+
+- Klijentske aplikacije
+
+- Timska administracija
+
+- Sigurnost životnog ciklusa softvera
+
+Cena:
+
+<i>GitHub</i> pruža platni plan na mesečnom i godišnjem nivou. Pored spomenutih platnih polanova postoji i besplatna opcija za pojedince.
+Na mesecnom nivou:
+
+- Tim - 4 USD po korisniku mesečno
+
+– <i>Enterprise</i> – 21 USD po korisniku mesečno
+
+Na godišnjem nivou:
+
+- Tim - 3,67 USD po korisniku mesečno
+
+– Enterprise – 19,25 USD po korisniku mesečno
+
+Dobre stvari:
+
+- <i>user-friendly</i> platforma
+- dosta pouzdan alat za kontrolu izvora
+- velika količina moguće kustomizacije repozitorijuma
+- nudi kontrolu verzije i revizije koda
+
+Loše stvari:
+
+- Početnicima treba dosta vremena da se upoznaju sa svim mogućnostima koje nudi <i>GitHub</i>
+
+<h1><i>Snyk</i><h1>
+
+
 ## Literatura
 [1] Nierstrasz, O., & Meijler, T. D. (1995). Research directions in software composition. <i>ACM Computing Surveys</i> (CSUR), 27(2), 262-264.
 
