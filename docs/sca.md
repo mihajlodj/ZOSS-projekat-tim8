@@ -72,6 +72,46 @@ Loše stvari:
 - Početnicima treba dosta vremena da se upoznaju sa svim mogućnostima koje nudi <i>GitHub</i>
 
 <h1><i>Snyk</i><h1>
+Karakteristike:
+
+- Jednostavna integracija
+
+- Kontinuirano skeniranje
+
+- Rešavanje problema jednim klikom
+
+- Privatna baza ranjivosti
+
+- Sigurnost koda
+
+- Sigurnost životnog ciklusa razvoja
+
+Cena:
+<i>Snyk</i> nudi besplatne tri različita platna plana.
+
+- Besplatno — za idividualne potrebe
+
+- Tim — 604 USD godišnje, 57 USD mesečno
+
+- Enterprise- Prilagođena ponude na osnovu potreba
+
+Dobre stvari:
+- Lako se integriše.
+
+- Prikaz ranjivosti po stepenima opasnosti.
+
+- Direktan i jednostavan pristup.
+
+Loše stvari:
+- U poređenju sa drugim alatima, manje je efikasan i koristan.
+
+- Njegovi problemi sa nedostupnošću mogu uzrokovati neuspeh <i>Snyk</i> koda.
+
+– Potrebno je više poboljšanja u predlozima kvaliteta koda.
+
+- Za izradu dokumentacije potrebno je više informacija.
+
+- Skeniranje prijavljenih ranjivosti duže traje.
 
 
 ## Literatura
