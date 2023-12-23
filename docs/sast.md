@@ -11,10 +11,11 @@ Iako programeri žele da koriste SAST alate, postoje izazovi koje programeri tre
 Alati koji bi se istraživali su: <i>SonarQube, Veracode, Checkmarx, Fortify, Coverity</i>. Nakon istraživanja alata jedan bi se iskoristio za implementaciju u samom <i>pipeline</i>-u.
 
 ## Sonarqube
+SonarQube, ranije poznat kao Sonar, je besplatna platforma otvorenog koda koju je razvio SonarSource [4]. Olivier Gaudin, Freddy Mallet, i Simon Brandhof su 2008 osnovali kompaniju SonarSource u Švajcarskoj [5]. Zaključno sa 2022. kompanija je imala preko sedam miliona korisnika, 21.000 <i>enterprise</i> korisnika i podržavala je rad preko 400.000 organizacija [5].
 
-Sonarqube je <i>open-source</i> platforma koja je namenjena kontinualnoj inspekciji kvaliteta programskog koda.
+Svrha platforme je olakšavanje kontinuirane evaluacije kvaliteta koda putem automatizovane analize statičkog koda. Ovaj proces pomaže u identifikaciji bagova i neželjenih programerskih praksi u programskom kodu napisanom u preko 30 programskih jezika. 
 
-TODO> Ubaciti opsti tekst o alatu.
+SonarQube pruža detaljne izveštaje koji obuhvataju različite aspekte, kao što su duplikati u kodu, pridržavanje standarda kodiranja, rezultati jediničnih testova (engl. <i>unit tests</i>), pokrivenost koda (engl. <i>code coverage</i>), složenost koda, gustina komentara, pojava bagova i preporuke za bezbednost.
 
 ### Karakteristike
 Neke od karakteristika koje proizvođač alata ističe su [3]:
@@ -133,6 +134,27 @@ Nudi 4 nivoa izdanja:
     - Otpornost podataka (engl. <i>Data resiliency</i>)
     - Horizontalno skaliranje (engl. <i>Horizontal scalability</i>)
 
+### Tipovi bezbednosnih analiza
+Bezbednosne analize koje platforma nudi se mogu grupisati u grupe napada. Najznačajnije grupe su [6]:
+- SQL injection vulnerabilities
+- Cross-site scripting (XSS)
+- Code injection attacks
+- Buffer overflows
+- Authentication issues
+- Cloud secrets detection
+- ...
+
+Platforma je usklađena sa bezbednosnim standardima 
+[PCI DSS](/docs/pcidss.md), 
+CWE Top 25, i 
+OWASP Top 10 [6].
+TODO: Dodati jos 2 dokumenta za neopisane standarde.
+
+### Podrška za Java programski jezik
+TODO: Sta sve podrzava koje verzije jezika frameworke itd
+
+TODO: Kakva je statistika oko pravila koje poseduje
+
 ## Veracode
 
 ## Checkmarx
@@ -144,4 +166,10 @@ Nudi 4 nivoa izdanja:
 
 [2] Yang, J., Tan, L., Peyton, J., & Duer, K. A. (2019, May). Towards better utilizing static application security testing. In 2019 <i>IEEE/ACM 41st International Conference on Software Engineering: Software Engineering in Practice (ICSE-SEIP)</i> (pp. 51-60). IEEE.
 
-[3] Sonarqube dokumentacija https://www.sonarsource.com/products/sonarqube/
+[3] SonarQube dokumentacija https://www.sonarsource.com/products/sonarqube/
+
+[4] Wiki članak o SonarQube-u https://en.wikipedia.org/wiki/SonarQube
+
+[5] Wiki članak o SonarSource https://en.wikipedia.org/wiki/SonarSource
+
+[6] SonarQube dokumentacija o bezbednosti https://www.sonarsource.com/solutions/security/
