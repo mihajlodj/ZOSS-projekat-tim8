@@ -73,7 +73,7 @@ Ostali:
 ### Izdanja
 Nudi 4 nivoa izdanja:
 - <i>Community Edition</i>
-- <i>Developer Edition</i> - Plaćena verzija. Nudi 
+- <i>Developer Edition</i>
 - <i>Enterprise Edition</i>
 - <i>Data Center Edition</i>
 
@@ -151,9 +151,31 @@ OWASP Top 10 [6].
 TODO: Dodati jos 2 dokumenta za neopisane standarde.
 
 ### Podrška za Java programski jezik
-TODO: Sta sve podrzava koje verzije jezika frameworke itd
+- Sve verzije do Java 19 su podržane [7]. 
+- Podržani Web radni okviri (engl. <i>web frameworks</i>) su: <i>Struts</i>, <i>JSP</i>, <i>Spring</i> [7]. 
+- Podržani radni okviri za testiranje su: <i>JUnit 4</i>, <i>JUnit 5</i>, <i>AssertJ</i>, <i>Mockito</i>, <i>Spring Test</i>, <i>TestNG</i> [7]. 
+- Podržana je analiza programskog koda koji koristi ORM mapere: <i>Hibernate</i>, <i>Spring JDBC Template</i>, <i>JDO</i>, <i>VertX SQL</i>. 
+- Postoji integracija sa 3 <i>build</i> alata: <i>Maven</i>, <i>Gradle</i> i <i>Ant</i>. 
 
-TODO: Kakva je statistika oko pravila koje poseduje
+Za Java programski jezik alat poseduje ukupno 677 pravila [8]. 
+Pravila se dele u grupe: 
+- Vulnerability
+    - <i>Vulnerabiliy</i> (ranjivost) je nedostatak u sistemu koji bi mogao biti zloupotrebljen kako bi se ugrozila njegova bezbednost. Ovo označava konkretan nedostatak koji napadači mogu eksploatisati kako bi dobili neovlašćen pristup, izvršili radnje ili izazvali poremećaje [9].
+    - Postoji ukupno 56 pravila koja detektuju ranjivosti [8]. 
+- Bug
+    - Greška je opšti termin za svaki nenamerni propust ili grešku u softverskoj aplikaciji [10]. Greške mogu varirati od manjih problema koji utiču na korisničko iskustvo do ozbiljnih defekata koji utiču na funkcionalnost. Za razliku od ranjivosti, greške možda neće nužno predstavljati sigurnosni rizik, ali i dalje mogu uticati na performanse softvera [11].
+    - Postoji ukupno 167 pravila koja detektuju <i>bug</i>-ove [8].
+- Security Hotspot
+    - <i>Security Hotspot</i> (Sigurnosno žarište) predstavlja oblast u izvornom kodu gde potencijalno mogu postojati sigurnosni problemi [12]. 
+    Ne mora nužno ukazivati na ranjivost, već sugeriše da bi kod trebalo pažljivije pregledati zbog sigurnosnih implikacija. 
+    Služe kao fokusi za detaljniju analizu sigurnosti.
+    - Postoji ukupno 38 pravila koja detektuju <i>Security Hotspot</i> [8].
+- Code Smell
+    - Odnosi se na svaki aspekt izvornog koda koji može ukazivati na dublji problem [13]. Ne označava nužno grešku ili ranjivost, već sugeriše da bi kod mogao biti poboljšan radi bolje čitljivosti, održivosti ili performansi. Mirisi koda su subjektivni pokazatelji koji podstiču programere da razmotre refaktorisanje.
+    - Postoji ukupno 416 pravila koja detektuju <i>Code Smell</i> [8].
+- Quick Fix
+    - Brza pomoć se odnosi na pomoć programeru kako bi lakše i brže izmenio deo programskog koda koji sadrži neki problem [14].
+    - Postoji ukupno 56 pravila koja detektuju ranjivosti koje se brzo mogu popraviti [8].
 
 ## Veracode
 
@@ -173,3 +195,19 @@ TODO: Kakva je statistika oko pravila koje poseduje
 [5] Wiki članak o SonarSource https://en.wikipedia.org/wiki/SonarSource
 
 [6] SonarQube dokumentacija o bezbednosti https://www.sonarsource.com/solutions/security/
+
+[7] SonarQube dokumentacija o Java jeziku https://www.sonarsource.com/knowledge/languages/java/
+
+[8] SonarQube pravila za Java programski jezik. Datum pristupa (23.12.2023.) https://rules.sonarsource.com/java/
+
+[9] Definition of vulnerability https://www.upguard.com/blog/vulnerability
+
+[10] Definition of bug https://en.wikipedia.org/wiki/Security_bug
+
+[11] Bug VS. Vulnerability https://www.informit.com/articles/article.aspx?p=437737&seqNum=2
+
+[12] Security Hotspot definicija https://docs.sonarsource.com/sonarcloud/digging-deeper/security-hotspots/#:~:text=Security%20hotspots-,What%20is%20a%20security%20hotspot%3F,fix%20to%20secure%20the%20code.
+
+[13] Code Smell definition by Martin Fowler https://martinfowler.com/bliki/CodeSmell.html
+
+[14] Quick Fix in SonarQube https://www.sonarsource.com/blog/sonarlint-quick-fixes/
