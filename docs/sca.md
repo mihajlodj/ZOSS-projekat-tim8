@@ -71,7 +71,12 @@ Loše stvari:
 
 - Početnicima treba dosta vremena da se upoznaju sa svim mogućnostima koje nudi <i>GitHub</i>
 
-<h1><i>Snyk</i><h1>
+Github ima ugrađenu detekciju za poznate ranjivosti <i>Dependabot</i>. U <i>Security</i> tabu github repozitorijuma možemo pronaći opciju za uključivanje <i>Dependabot</i>-a. U samom tabu Dependabot se nalaze sve detektovane ranjivosti naše aplikacije poređane po nivou kritičnosti.
+![DEPENDABOT graph](/docs/images/githubDependabot.PNG)
+Klikom na neku od ponuđenih ranjivosti dobijamo više informacija o njoj i ukoliko postoji moguće ažuriranje za otklanjanje ranjivosti
+![DEPENDABOT graph](/docs/images/githubdependabotDetails.PNG)
+
+<h1><i>Snyk</i></h1>
 Karakteristike:
 
 - Jednostavna integracija
@@ -112,6 +117,10 @@ Loše stvari:
 - Za izradu dokumentacije potrebno je više informacija.
 
 - Skeniranje prijavljenih ranjivosti duže traje.
+
+
+<h1><i>Soos</i></h1>
+Karakteristike:
 
 
 ## Literatura
