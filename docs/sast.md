@@ -146,7 +146,7 @@ Bezbednosne analize koje platforma nudi se mogu grupisati u grupe napada. Najzna
 
 Platforma je usklađena sa bezbednosnim standardima 
 [PCI DSS](/docs/pcidss.md), 
-CWE Top 25, i 
+[CWE Top 25](/docs/cwe-top-25.md), i 
 OWASP Top 10 [6].
 TODO: Dodati jos 2 dokumenta za neopisane standarde.
 
