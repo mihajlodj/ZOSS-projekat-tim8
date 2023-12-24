@@ -120,6 +120,18 @@ Loše stvari:
 
 - Skeniranje prijavljenih ranjivosti duže traje.
 
+Integracija <i>Snyk</i> alata je vrlo jednostavna. 
+
+![SNYK graph](/docs/images/snykAddingRepo.PNG)
+
+U toku importovanja projekta <i>Snyk</i> alat vrši SCA analizu. Ova analiza može da potraje i do par minuta. Nakon toga dobijamo prikaz svih poznatih ranjivosti.
+
+![SNYK graph](/docs/images/snzkAnalzsis.PNG)
+
+Klikom na spisak poznatih ranjivosti dobijamo detaljan svake od ranjivosti kao i opciju da ažuriramo poznate ranjivosti preko <i>pull request</i>-a
+
+![SNYK graph](/docs/images/snykDetails.PNG)
+
 
 <h1><i>Soos</i></h1>
 Karakteristike:
