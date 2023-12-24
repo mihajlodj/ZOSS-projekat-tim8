@@ -73,7 +73,9 @@ Loše stvari:
 
 Github ima ugrađenu detekciju za poznate ranjivosti <i>Dependabot</i>. U <i>Security</i> tabu github repozitorijuma možemo pronaći opciju za uključivanje <i>Dependabot</i>-a. U samom tabu Dependabot se nalaze sve detektovane ranjivosti naše aplikacije poređane po nivou kritičnosti.
 ![DEPENDABOT graph](/docs/images/githubDependabot.PNG)
-Klikom na neku od ponuđenih ranjivosti dobijamo više informacija o njoj i ukoliko postoji moguće ažuriranje za otklanjanje ranjivosti
+
+Klikom na neku od ponuđenih ranjivosti dobijamo više informacija o samoj ranjivosti. Ukoliko postoji ažuriranje za otklanjanje ranjivosti dobijamo mogućnost <i> security update</i>-a.
+
 ![DEPENDABOT graph](/docs/images/githubdependabotDetails.PNG)
 
 <h1><i>Snyk</i></h1>
