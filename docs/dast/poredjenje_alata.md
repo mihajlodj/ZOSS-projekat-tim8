@@ -131,15 +131,3 @@ U tabeli ispod je dat sažetak karakteristika upoređivanih alata.
         </tr>
     </tbody>
 </table>
-
-<style>
-    table, th, td {
-        border: 1px solid;
-    } 
-
-    table {
-        border-collapse: collapse;
-        width: 100%;
-        font-size: 12px;
-    }
-</style>
