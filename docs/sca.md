@@ -182,6 +182,13 @@ Klikom na ReportUrl korisnik se prebacuje na Soos report stranicu
 Korisniku su prikazane sve poznate ranjivosti. Klikom na svaku od njih dobijamo više detalja o samoj ranjivosti kao i mogućnost kreiranja <i>issue</i>-a za ažuriranje poznate ranjivosti.
 
 
+<h1><i>Jenkins pipeline</i></h1>
+Imajući u vidu prednosti i mane gore navedenih SCA alata odlučili smo se da u naš <i>Jenkins pipeline</i> integrišemo <i>Snyk</i>.
+<i>Snyk</i> alat možda nije najefikasniji, ali za razliku od <i>Soos</i>-a je besplatan i ima intuitivniji UI. Prednost u odnosu na <i>Github</i> mu je njegova direktnost i uska specijalizovanost za SCA.
+
+Kod našeg <i>Jenkins pipeline</i> je smešten u <i>jenkins_pipeline.md</i> fajlu ovog repozitorijuma.
+
+
 ## Literatura
 [1] Nierstrasz, O., & Meijler, T. D. (1995). Research directions in software composition. <i>ACM Computing Surveys</i> (CSUR), 27(2), 262-264.
 
