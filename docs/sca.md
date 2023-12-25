@@ -189,7 +189,16 @@ Imajući u vidu prednosti i mane gore navedenih SCA alata odlučili smo se da u 
 Kod našeg <i>Jenkins pipeline</i> je smešten u <i>jenkins_pipeline.md</i> fajlu ovog repozitorijuma.
 
 
+![JENKINS graph](/docs/images/jenkinsPipelineSCA.PNG)
+
+
 ## Literatura
 [1] Nierstrasz, O., & Meijler, T. D. (1995). Research directions in software composition. <i>ACM Computing Surveys</i> (CSUR), 27(2), 262-264.
 
 [2] Zhao, L., Chen, S., Xu, Z., Liu, C., Zhang, L., Wu, J., ... & Liu, Y. (2023, November). Software composition analysis for vulnerability detection: An empirical study on Java projects. <i>In Proceedings of the 31st ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering</i> (pp. 960-972).
+
+[3] About Github - https://docs.github.com/en/rest/dependabot?apiVersion=2022-11-28
+
+[4] About Snyk - https://docs.snyk.io
+
+[5] About Soos - https://kb.soos.io/help
