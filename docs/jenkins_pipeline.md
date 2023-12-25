@@ -1,3 +1,4 @@
+```
 node {
     stage('Preparation') {
         git 'https://github.com/cr0hn/vulnerable-node'
@@ -24,3 +25,5 @@ node {
         echo "Test Result"
     }
 }
+```
+
