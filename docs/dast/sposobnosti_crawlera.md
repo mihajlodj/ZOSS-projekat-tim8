@@ -26,8 +26,8 @@ Da bi *crawler* mogao biti primenljiv nad modernim veb aplikacijama, mora imati 
     - maksimalnu veličinu koju odgovor može imati da bi bio parsiran
     - način za upravljanje parametrima upita
     - da li će se postavljati *Referer* zaglavlje na poslate zahteve
-    - da li cookie-ji treba da se prihvate, način na koji se obrađuju forme
-    - da li će se parsirati HTML komentari, robots.txt fajlovi, sitemap.xml fajlove, te određeni fajlovi sa metapodacima [7].
+    - da li *cookie*-ji treba da se prihvate, način na koji se obrađuju forme
+    - da li će se parsirati HTML komentari, *robots.txt* fajlovi, *sitemap.xml* fajlove, te određeni fajlovi sa metapodacima [7].
     
     Prilikom konfiguracije AJAX *spider*-a moguće je podesiti:
     - koji *browser* se koristi i u kom režimu (podrazumevano je *Firefox Headless*)
@@ -46,22 +46,22 @@ Da bi *crawler* mogao biti primenljiv nad modernim veb aplikacijama, mora imati 
     
     Moguće je podesiti: 
     - maksimalan broj prelaza sa jednog linka na drugi
-    - kredencijale koji će se korisititi za login (u suprotnom se obavlja neautentifikovani crawl)
-    - strategiju koja omogućava prilagođavanje specifičnoj aplikaciji (definiše odnos između brzine i pokrivenosti – default, Faster, Fastest, More complete, Most complete)
+    - kredencijale koji će se korisititi za *login* (u suprotnom se obavlja neautentifikovani *crawl*)
+    - strategiju koja omogućava prilagođavanje specifičnoj aplikaciji (definiše odnos između brzine i pokrivenosti – *default, Faster, Fastest, More complete, Most complete*)
     - ograničenja za trajanje procesa na osnovu proteklog vremena, ukupnog broja HTTP zahteva i broja jedinstvenih otkrivenih tačaka u aplikaciji
-    - način reakcije na funkcionalnost login-a (pokušaj samostalne registracije na aplikaciju radi login-a ili namerno slanje pogrešnih kredencijala da bi se došlo do opcija za povratak naloga – pri tome se ne šalje pogrešna lozinka za neki od zadatih korisničkih imena kako ne bi došlo do zaključavanja naloga)
-    - kako će se rukovati greškama, kao što su prekid konekcije ili *timeout*-ovi (može se podesiti broj uzastopnih *timed-out* zahteva pre pauziranja procesa ili procenat timed-out zahteva pre pauziranja procesa)
+    - način reakcije na funkcionalnost *login*-a (pokušaj samostalne registracije na aplikaciju radi *login*-a ili namerno slanje pogrešnih kredencijala da bi se došlo do opcija za povratak naloga – pri tome se ne šalje pogrešna lozinka za neki od zadatih korisničkih imena kako ne bi došlo do zaključavanja naloga)
+    - kako će se rukovati greškama, kao što su prekid konekcije ili *timeout*-ovi (može se podesiti broj uzastopnih *timed-out* zahteva pre pauziranja procesa ili procenat *timed-out* zahteva pre pauziranja procesa)
     - da li će se forme *submit*-ovati
     - postavljanje vrednosti *User-Agent* *header*-a
-    - da li će se korisniku prikazivati *browser* (default je da režim bude *headless*)
-    - da li će se parsirati API definicije, robots.txt fajlovi, sitemap.xml fajlovi
+    - da li će se korisniku prikazivati *browser* (podrazumevano je da režim bude *headless*)
+    - da li će se parsirati API definicije, *robots.txt* fajlovi, *sitemap.xml* fajlovi
     - način za prepoznavanje fragmenata koji se koriste za rutiranje kod *Single Page* aplikacija [9].
 
     **W3AF**
     
-    Konfiguracija se najvećim delom svodi na uključivanje različitih *crawl* *plugin*-a, kojih je moguće uključiti proizvoljno mnogo. Takođe je moguće uključiti *bruteforce* *plugin* ukoliko je potrebno odraditi *bruteforce* *login*. Osim toga, moguće je podesiti:
-    - da li će se skenirati sadržaj samo jednog direktorijuma
-    - da li će se određene forme ili URL-ovi ignorisati
+    Konfiguracija se najvećim delom svodi na uključivanje različitih *crawl* *plugin*-a, kojih je moguće uključiti proizvoljno mnogo [10]. Takođe je moguće uključiti *bruteforce* *plugin* ukoliko je potrebno odraditi *bruteforce* *login* [11]. Osim toga, moguće je podesiti:
+    - da li će se skenirati sadržaj samo jednog direktorijuma [12]
+    - da li će se određene forme ili URL-ovi ignorisati [13]
 
     ***Arachni***
     
@@ -93,3 +93,11 @@ Da bi *crawler* mogao biti primenljiv nad modernim veb aplikacijama, mora imati 
 [8] https://www.zaproxy.org/docs/desktop/addons/ajax-spider/options/
 
 [9] https://portswigger.net/burp/documentation/scanner/scan-configurations/crawl-options
+
+[10] http://w3af.org/plugins/crawl
+
+[11] http://w3af.org/plugins/bruteforce
+
+[12] http://docs.w3af.org/en/latest/common-use-cases.html?highlight=directory#scanning-only-one-directory
+
+[13] http://docs.w3af.org/en/latest/advanced-use-cases.html?highlight=form#ignoring-specific-forms
