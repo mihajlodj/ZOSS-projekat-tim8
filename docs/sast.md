@@ -325,6 +325,54 @@ Za _Java_ programski jezik podržano je više _framewokr_-a [17]:
 - MyBatis
 
 ## Fortify
+Fortify Static Application Security Testing (SAST) je alat namenjen analizi programskog koda radi pronalaženja bezbednosnih propusta. Razvijen je od strane kompanije Micro Focus.
+Alat vrši temeljnu i sveobuhvatnu analizu programskog koda aplikacije, pokrivajući širok spektar programskih jezika i radnih okvira (engl. _frameworks_).
+Integriše se sa popularnim integrisanim razvojnim okruženjima (Jetbrains, Eclipse, Visual Studio, ...) i alatima za CI/CD (Jenkins).
+Korisnici mogu definisati i prilagoditi bezbednosna pravila i politike prema svojim specifičnim zahtevima i standardima usklađenosti, prilagođavajući analizu potrebama njihove aplikacije.
+
+Fortify je komercijalni alat, a cena licenciranja može biti faktor za neke organizacije, posebno manje koje imaju budžetska ograničenja.
+Fortify može biti teži za učenje i postavljanje okruženja za nove korisnike, za razliku od nekih svojih konkurenata.
+Kao i mnogi alati za SAST, Fortify može generisati lažne pozitive (engl. _False positives_), identifikujući probleme koji nisu stvarni bezbednosni propusti. Po ovoj stavci, na osnovu recenzija korisnika - _Fortify_ je lošiji od svojih konkurenata (npr. _Checkmarx_) [24].
+
+### Jezici
+Podržava više popularnih jezika i <i>framework</i>-a. Neki od njih su [23]:
+
+- ABAP/BSP
+- ActionScript
+- Apex
+- ASP.NET
+- C# (.NET)
+- C
+- C++
+- Classic
+- ASP (with VBScript)
+- COBOL
+- ColdFusion CFML
+- Go
+- HTML
+- Java (including Android)
+- JavaScript/AJAX
+- JSP
+- Kotlin
+- MXML (Flex)
+- Objective C
+- PHP
+- PL/SQL
+- Python
+- Ruby
+- Swift
+- T-SQL
+- VB.NET
+- VBScript
+- Visual Basic
+- XML
+
+### Tipovi bezbednosnih analiza
+Pretragom dokumentacije nije pronađena klasifikacija pravila koje alat koristi za detekciju ranjivosti. Takođe nisu pronađena ni sama pravila. 
+
+### Podrška za Java programski jezik
+Pretragom dokumentacije alata, kao i relevantnih alternativnih izvora infromacija na internetu nije pronađena dokumentacija koja govori o podržanim radnim okvirima (engl. _frameworks_) koji su podržani od strane alata. 
+
 
 ## Literatura
 [1] Aloraini, B., Nagappan, M., German, D. M., Hayashi, S., & Higo, Y. (2019). An empirical study of security warnings from static application security testing tools. <i>Journal of Systems and Software</i>, 158, 110427.
@@ -370,3 +418,7 @@ Za _Java_ programski jezik podržano je više _framewokr_-a [17]:
 [21] Veracode SAST supported frameworks for Java https://docs.veracode.com/r/compilation_java#java-packaging-tutorial
 
 [22] Veracode SAST about adding new rules https://docs.veracode.com/r/Create_Custom_Rules_for_Agent_Based_Scanning
+
+[23] Fortify supported languages https://www.appsecsanta.com/fortify-static-code-analyzer#:~:text=PL%2FSQL%2C%20Python%2C%20Ruby,%2C%20Visual%20Basic%2C%20and%20XML.
+
+[24] Comparison between Fortify and Checkmarx https://www.peerspot.com/questions/what-is-the-biggest-difference-between-checkmarx-and-fortify
