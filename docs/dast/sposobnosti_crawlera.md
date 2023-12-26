@@ -82,7 +82,7 @@ Da bi *crawler* mogao biti primenljiv nad modernim veb aplikacijama, mora imati 
 
 [3] https://portswigger.net/burp/documentation/scanner/browser-powered-scanning
 
-[4] 
+[4] https://docs.w3af.org/_/downloads/en/develop/pdf/#section.1.8
 
 [5] http://docs.w3af.org/en/latest/advanced-use-cases.html
 

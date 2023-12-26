@@ -22,7 +22,7 @@ Pod mogućnostima kontrole alata se podrazumevaju aspekti koji se tiču fleksibi
 
     **W3AF**: Da [4]
 
-    ***Arachni***: Da. Takođe ima mogućnost suspendovanja procesa i restore-ovanja sa diska [5].
+    ***Arachni***: Da. Takođe ima mogućnost suspendovanja procesa i *restore*-ovanja sa diska [5].
 
 - ### Mogućnost konkurentnog skeniranja
 
@@ -50,33 +50,41 @@ Pod mogućnostima kontrole alata se podrazumevaju aspekti koji se tiču fleksibi
 
 - ### Podržani korisnički interfejsi
 
-    **ZAP**: CLI, desktop aplikacija, Heads Up Display (browser) – ne održava se više
+    **ZAP**: CLI, desktop aplikacija, Heads Up Display (ne održava se više) [11]
 
-    ***Burp Suite***: CLI, desktop aplikacija
+    ***Burp Suite***: CLI [12], desktop aplikacija [13]
 
-    **W3AF**: CLI, desktop aplikacija
+    **W3AF**: CLI, desktop aplikacija [14]
 
-    ***Arachni***: CLI, veb interfejs
+    ***Arachni***: CLI, veb interfejs [5]
 
 ----
 ## Literatura
 
-[1]
+[1] https://portswigger.net/burp/documentation/enterprise/working-with-scans/manage-scheduled-scans
 
-[2]
+[2] https://www.zaproxy.org/docs/desktop/ui/tabs/ascan/
 
-[3]
+[3] https://portswigger.net/burp/documentation/scanner/auditing
 
-[4]
+[4] http://docs.w3af.org/en/latest/gui/scanning.html?highlight=pause#running-the-scan
 
-[5]
+[5] https://rubydoc.info/github/Arachni/arachni
 
-[6]
+[6] https://www.zaproxy.org/docs/desktop/ui/dialogs/options/ascan/
 
-[7]
+[7] https://portswigger.net/burp/documentation/enterprise/configuring-infrastructure/managing-scanning-resources/standard/assigning-scan-limits
 
-[8]
+[8] https://www.zaproxy.org/docs/desktop/ui/dialogs/persistsession/
 
-[9]
+[9] https://portswigger.net/burp/documentation/desktop/projects
 
-[10]
+[10] http://docs.w3af.org/en/latest/basic-ui.html?highlight=profile#saving-the-configuration
+
+[11] https://www.zaproxy.org/getting-started/
+
+[12] https://portswigger.net/burp/documentation/desktop/troubleshooting/launch-from-command-line
+
+[13] https://portswigger.net/burp/documentation/desktop
+
+[14] http://docs.w3af.org/en/latest/gui/index.html?highlight=graphical#gui-introduction
