@@ -125,3 +125,26 @@ Skeniranje veb aplikacije predstavlja proces otkrivanja njenih ranjivosti. U ovo
     ***Burp Suite*** omogućava da se dobijeni false positive rezultati zapamte za buduća skeniranja, kako se ne bi ponavljali. Takođe omogućava podešavanje prepoznavanja *false positive*-a. Podešavanjem preciznosti skenera moguće je smanjiti broj *false positive*-a.
 
     **W3AF** i ***Arachni*** u svojim dokumentacijama ne navodi nikakav konkretan mehanizam za smanjenja broja dobijenih *false positive* rezultata.
+
+----
+## Literatura
+
+[1]
+
+[2]
+
+[3]
+
+[4]
+
+[5]
+
+[6]
+
+[7]
+
+[8]
+
+[9]
+
+[10]

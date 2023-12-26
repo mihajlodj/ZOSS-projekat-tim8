@@ -1,9 +1,6 @@
-# TODO
- - scope i context za zap, cvorovi
-
 U okviru ovog projekta će biti analizirani i upoređeni sledeći alati za dinamičku analizu sigurnosnih aspekata softvera: OWASP ZAP, *Burp Suite* (besplatna i plaćena verzija), W3AF i *Arachni*. Dva najbolja alata će onda biti implementirana u okviru DevSecOps *pipeline*-a. Pri tome u obzir za implementaciju ne dolazi plaćena verzija *Burp Suite*-a, već on ulazi u poređenje da bi se stekao uvid u to koliko open source alati odstupaju od plaćenih alata. Kao izvor informacija o alatima će biti korišćena njihova zvanična dokumentacija, te ako u dokumentaciji nije navedena određena funkcionalnost, smatraće se da je alat ne poseduje.
 
-**ZAP** je *open source* alat koji omogućava ručno i automatizovano testiranje sigurnosnih aspekata softvera. ZAP može da presreće, analizira, menja i prosleđuje zahteve koji se šalju između klijenta i ciljne veb aplikacije. Skeniranje može biti aktivno i pasivno. Pasivno skeniranje se sastoji samo iz pronalaska dostupnih URL-ova i resursa, dok aktivno skeniranje podrazumeva i napade na pronađene URL-ove i resurse. Pasivno skeniranje se smatra sigurnim jer ne menja odgovore. Pasivnim skeniranjem se mogu otkriti neke ranjivosti, te se mogu identifikovati lokacije u softveru koje zahtevaju dalju analizu. Aktivnim skeniranjem se otkriva veći skup ranjivosti u softveru. U okviru njega se softver napada poznatim napadima i moguće ga je ugroziti. Postoji dosta plugina za ZAP koji pružaju dodatne specijalizovane funkcionalnosti. ZAP takođe može izvršavati napade preko API-a, koji se može importovati u više formata (GraphQL, OpenAPI, SOAP, *Postman*). Za svaku veb aplikaciju koja se testira zadaje se kontekst, u okviru kog se navode podešavanja specifična za posmatranu aplikaciju.
+**ZAP** je *open source* alat koji omogućava ručno i automatizovano testiranje sigurnosnih aspekata softvera. ZAP može da presreće, analizira, menja i prosleđuje zahteve koji se šalju između klijenta i ciljne veb aplikacije. Da bi se skeniranje moglo započeti, prvo *spider* komponenta identifikuje dostupne URL-ove aplikacije. Na osnovu njih se formira interna reprezentacija aplikacije. Ona je predstavljena kao struktura tipa stabla, kod koje svaki čvor odgovara jednom URL-u ili resursu, odnosno mogućoj tački napada. URL-ovi se grupišu u kontekste (najčešće jedan kontekst odgovara jednoj veb aplikaciji). Pošto nisu uvek svi identifikovani URL-ovi i resursi od interesa za testiranje, zadaju se opsezi, odnosno skupovi URL-ova koji će biti testirani.  Skeniranje može biti aktivno i pasivno. Pasivno skeniranje se sastoji samo iz pronalaska dostupnih URL-ova i resursa, dok aktivno skeniranje podrazumeva i napade na pronađene URL-ove i resurse. Pasivno skeniranje se smatra sigurnim jer ne menja odgovore. Pasivnim skeniranjem se mogu otkriti neke ranjivosti, te se mogu identifikovati lokacije u softveru koje zahtevaju dalju analizu. Aktivnim skeniranjem se otkriva veći skup ranjivosti u softveru. U okviru njega se softver napada poznatim napadima i moguće ga je ugroziti. Postoji dosta plugina za ZAP koji pružaju dodatne specijalizovane funkcionalnosti. ZAP takođe može izvršavati napade preko API-a, koji se može importovati u više formata (GraphQL, OpenAPI, SOAP, *Postman*). Za svaku veb aplikaciju koja se testira zadaje se kontekst, u okviru kog se navode podešavanja specifična za posmatranu aplikaciju.
 
 ***Burp Suite*** alat, kao i ZAP, omogućava ručno i automatizovano testiranje sigurnosnih aspekata softvera, prvenstveno veb aplikacija. Ovaj alat nije *open source*, već ima *Community* verziju koja je besplatna i *Professional* i *Enterprise* verzije koje se plaćaju. Najznačajniji alati od kojih se *Burp Suite* sastoji su: *Proxy*, *Scanner*, *Intruder*, *Repeater*, *Sequencer*, *Decoder* i *Comparer*. *Proxy* alat predstavlja veb *proxy* koji presreće HTTP zahteve između *browser*-a i ciljne aplikacije, te omogućava uvid u njih i izmenu njihovog sadržaja. *Scanner* je zadužen za proces automatskog pronalaska dostupnih URL-ova (navigira kroz aplikaciju i kreira njenu reprezentaciju) i identifikacije ranjivosti veb aplikacija. Nije dostupan u besplatnoj verziji *Burp Suite*-a. *Intruder* omogućava podešavanje napada koji šalju veb aplikaciji isti zahtev više puta, sa različitim payload-ovima. Repeater omogućava izmenu i uzastopno slanje HTTP ili *WebSocket* poruka. Sequencer testira koliko su određene vrednosti zaista nasumične (npr. tokeni sesije, Anti-CSRF tokeni i tokeni za reset-ovanje lozinke). *Decoder* se koristi za enkodovanje i dekodovanje podataka u različite formate. Dekodovanje se može obavljati ručno, a moguće je i automatski detektovati format enkodovanja. Comparer omogućava poređenje razičitih podataka (najčešće HTTP zahteva ili odgovora) i prikazivanje razlika između njih.
 
@@ -35,6 +32,7 @@ Alati će se porediti po sledećim kriterijumima:
     - Zakazivanje skeniranja
     - Mogućnost pauziranja i nastavljanja
     - Mogućnost konkurentnog skeniranja
+    - Mogućnost ponovnog iskorišćenja konfiguracije skeniranja
     - Podržani korisnički interfejsi
 
 U tabeli ispod je dat sažetak karakteristika upoređivanih alata.
@@ -129,5 +127,84 @@ U tabeli ispod je dat sažetak karakteristika upoređivanih alata.
             <td>Manje mogućnosti</td>
             <td>Manje mogućnosti</td>
         </tr>
+        <tr>
+            <td>Podržani formati izveštaja</td>
+            <td>HTML, XML, JSON, Markdown, PDF</td>
+            <td>XML, HTML, slanje putem <i>mail</i>-a</td>
+            <td>-</td>
+            <td>CSV, HTML, Text, XML, slanje putem <i>mail</i>-a</td>
+            <td>HTML, XML, Text, JSON, Marshal, YAML, AFR</td>
+        </tr>
+        <tr>
+            <td>Sadržaj izveštaja</td>
+            <td>Procenat, broj, naziv, opis ranjivosti, URL-ovi sa ranjivostima, podaci o HTTP zahtevima, objašnjenje rizika</td>
+            <td>Tip, naziv, opis ranjivosti, predlog za otklanjanje tipa ranjivosti i konkretne ranjivosti, URL-ovi sa ranjivostima, podaci o HTTP zahtevima</td>
+            <td>-</td>
+            <td>Nije navedeno</td>
+            <td>Nije navedeno</td>
+        </tr>
+        <tr>
+            <td>Mogućnost podešavanja izveštaja</td>
+            <td>Report Generation add-on omogućava podešavanje sadržaja i formata</td>
+            <td>Report wizard omogućava podešavanje sadržaja, formata, načina prikazivanja zahteva, načina grupisanja ranjivosti, nivoa detaljnosti</td>
+            <td>-</td>
+            <td>Moguće podešavanje lokacije izveštaja i uključivanja debug informacija</td>
+            <td>Nije navedeno</td>
+        </tr>
+        <tr>
+            <td>Zakazivanje skeniranja</td>
+            <td>Ne</td>
+            <td>Da</td>
+            <td>-</td>
+            <td>Ne</td>
+            <td>Ne</td>
+        </tr>
+        <tr>
+            <td>Pauziranje i nastavljanje skeniranja</td>
+            <td>Da</td>
+            <td>Da</td>
+            <td>-</td>
+            <td>Da</td>
+            <td>Da, moguća i hibernacija</td>
+        </tr>
+        <tr>
+            <td>Konkurentno skeniranje</td>
+            <td>Da</td>
+            <td>Da</td>
+            <td>-</td>
+            <td>Ne</td>
+            <td>Da</td>
+        </tr>
+        <tr>
+            <td>Mogućnost ponovnog iskorišćenja konfiguracije skeniranja</td>
+            <td>Čuvanje sesije u lokalnoj bazi podataka</td>
+            <td>Čuvanje podataka i konfiguracija u projektnim fajlovima</td>
+            <td>Ne, samo privremeno čuvanje podataka</td>
+            <td>Čuvanje konfiguracije u profilima, koje je moguće deliti sa drugim korisnicima</td>
+            <td>Ne</td>
+        </tr>
+        <tr>
+            <td>Podržani korisnički interfejsi</td>
+            <td>CLI, desktop aplikacija, Heads Up Display</td>
+            <td>CLI, desktop aplikacija</td>
+            <td>CLI, desktop aplikacija</td>
+            <td>CLI, desktop aplikacija</td>
+            <td>CLI, veb interfejs</td>
+        </tr>
     </tbody>
 </table>
+
+----
+## Literatura
+
+[1]
+
+[2]
+
+[3]
+
+[4]
+
+[5]
+
+[6]

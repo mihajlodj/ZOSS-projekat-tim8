@@ -6,23 +6,23 @@ Potrebno je da alati omoguće generisanje izveštaja sa podesivim sadržajem i u
 
     U nastavku su za svaki alat nabrojani formati u koje je moguće eksportovati generisane izvešate.
 
-    **ZAP**: HTML, XML, JSON, Markdown, PDF
+    **ZAP**: HTML, XML, JSON, Markdown, PDF [1]
 
-    ***Burp Suite*** (plaćena verzija): XML, HTML, slanje putem *mail*-a
+    ***Burp Suite*** (plaćena verzija): XML, HTML, slanje putem *mail*-a [2]
 
-    **W3AF**: CSV, HTML, Text, XML, slanje putem *mail*-a
+    **W3AF**: CSV, HTML, Text, XML, slanje putem *mail*-a [3]
 
-    ***Arachni***: HTML, XML, Text, JSON, Marshal, YAML, AFR (*Arachni Framework Report*)
+    ***Arachni***: HTML, XML, Text, JSON, Marshal, YAML, AFR (*Arachni Framework Report*) [4]
 
 - ### Mogućnost podešavanja
 
     **ZAP**
     
-    Postoji Report Generation *add-on* koji omogućava podešavanja sadržaja i formata izveštaja. Takođe postoji više predefinisanih šablona za generisanje izveštaja, koji se međusobno razlikuju po formatu, nivuo detaljnosti i sadržaju. Moguće je odabrati kontekste i sajtove čije ranjivosti će se prikazivati u izveštaju (podrazumevano će svi biti uključeni)
+    Postoji Report Generation *add-on* koji omogućava podešavanja sadržaja i formata izveštaja. Takođe postoji više predefinisanih šablona za generisanje izveštaja, koji se međusobno razlikuju po formatu, nivuo detaljnosti i sadržaju. Moguće je odabrati kontekste i sajtove čije ranjivosti će se prikazivati u izveštaju (podrazumevano će svi biti uključeni) [5].
 
     ***Burp Suite*** (plaćena verzija)
     
-    Postoji report wizard u kome je moguće podesiti željeni sadržaj i format izveštaja. Moguće je podesiti na koji način će se razmenjene HTTP poruke prikazati u izveštaju (u potpunosti se prikazuju, prikazuju se samo relevantni delovi, ne prikazuju se uopšte). Mogu se izabrati oni tipovi ranjivosti koji će se prikazati u izveštaju, da se ne prikazuju oni koji su manje interesantni za konkretan slučaj. Takođe je moguće zadati način na koji će prikazane ranjivosti biti grupisane u okviru izveštaja (po tipu, po ozbiljnosti ili po URL-u), te kao i na kom nivuo detaljnosti će biti prikazane.
+    Postoji report wizard u kome je moguće podesiti željeni sadržaj i format izveštaja. Moguće je podesiti na koji način će se razmenjene HTTP poruke prikazati u izveštaju (u potpunosti se prikazuju, prikazuju se samo relevantni delovi, ne prikazuju se uopšte). Mogu se izabrati oni tipovi ranjivosti koji će se prikazati u izveštaju, da se ne prikazuju oni koji su manje interesantni za konkretan slučaj. Takođe je moguće zadati način na koji će prikazane ranjivosti biti grupisane u okviru izveštaja (po tipu, po ozbiljnosti ili po URL-u), te kao i na kom nivuo detaljnosti će biti prikazane [2].
 
     **W3AF**
     
@@ -36,7 +36,7 @@ Potrebno je da alati omoguće generisanje izveštaja sa podesivim sadržajem i u
 
     **ZAP**
     
-    Konkretan sadržaj izveštaja zavisi od odabranog šablona prema kome se izveštaj pravi. U informacije koje izveštaji mogu prikazati spadaju:
+    Konkretan sadržaj izveštaja zavisi od odabranog šablona prema kome se izveštaj pravi. U informacije koje izveštaji mogu prikazati spadaju: [1]
     - Procenat i broj ranjivosti po ozbiljnosti (*High*, *Medium*, *Low*, *Informational*)
     - Broj i nazivi identifikovanih ranjivosti
     - URL-ovi na kojima su ranjivosti identifikovane
@@ -47,7 +47,14 @@ Potrebno je da alati omoguće generisanje izveštaja sa podesivim sadržajem i u
 
     ***Burp Suite*** (plaćena verzija)
     
-    Omogućava generisanje standardnih izveštaja i compliance izveštaja. Podaci koji mogu da se nađu i izveštaju su tip otkrivenih ranjivosti, njegov opis, standardi predlog za otklanjanje tipa ranjivosti, specifične informacije relevantne za ranjivost, specifičan predlog za otklanjanje konkretne ranjivosti, mapiranje ranjivosti na Common Weakness Enumeration listu, te URL na kom je otkrivena ranjivost i razmenjene HTTP poruke.
+    Omogućava generisanje standardnih izveštaja i *compliance* izveštaja. Standardni izveštaji daju generalni uvid u detalje skeniranja, a *compliance* izveštaji pokazuju da li je aplikacija u skladu sa određenim standardom ili kriterijumima. Podaci koji mogu da se nađu u izveštaju su [6]:
+    - tip otkrivenih ranjivosti
+    - opis otkrivenih ranjivosti
+    - standardni predlog za otklanjanje tipa ranjivosti
+    - specifične informacije relevantne za ranjivost
+    - specifičan predlog za otklanjanje konkretne ranjivosti
+    - mapiranje ranjivosti na Common Weakness Enumeration listu
+    - URL na kom je otkrivena ranjivost i razmenjene HTTP poruke.
 
     **W3AF**
     
@@ -56,3 +63,18 @@ Potrebno je da alati omoguće generisanje izveštaja sa podesivim sadržajem i u
     ***Arachni***
     
     U dokumentaciji nije navedeno šta konkretno ulazi u sadržaj izveštaja.
+
+    
+----
+## Literatura
+[1] https://www.zaproxy.org/docs/desktop/addons/report-generation/templates/
+
+[2] https://portswigger.net/burp/documentation/desktop/automated-scanning/reporting/report-settings
+
+[3] http://w3af.org/plugins/output
+
+[4] https://rubydoc.info/github/Arachni/arachni
+
+[5] https://www.zaproxy.org/docs/desktop/addons/report-generation/
+
+[6] https://portswigger.net/burp/documentation/enterprise/reference/reports

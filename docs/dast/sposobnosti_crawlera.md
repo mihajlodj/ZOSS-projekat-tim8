@@ -6,13 +6,13 @@ Da bi *crawler* mogao biti primenljiv nad modernim veb aplikacijama, mora imati 
 
 - ### Podrška za moderne veb aplikacije
     
-    **ZAP** ima dva *spider*-a: tradicionalni i AJAX *spider*. Tradicionalni spider pronalazi linkove tako što analizira HTML kod koji je dobijen u odgovoru veb aplikacije. On je brz, ali nema mogućnost otkrivanja linkova koji su generisani upotrebom *JavaScript* koda, te nije pogodan za moderne veb aplikacije. Međutim, AJAX *spider* ima tu mogućnost. On pokreće *browser* i koristi *Selenium* alat za otkrivanje i praćenje linkova.
+    **ZAP** ima dva *spider*-a: tradicionalni i AJAX *spider*. Tradicionalni spider pronalazi linkove tako što analizira HTML kod koji je dobijen u odgovoru veb aplikacije. On je brz, ali nema mogućnost otkrivanja linkova koji su generisani upotrebom *JavaScript* koda, te nije pogodan za moderne veb aplikacije [1]. Međutim, AJAX *spider* ima tu mogućnost. On pokreće *browser* i koristi *Selenium* alat za otkrivanje i praćenje linkova [2].
 
-    ***Burp Suite*** (plaćena verzija) sadrži integrisani *Chromium browser* koji omogućava navigaciju kroz aplikaciju, te je moguće analizirati aplikacije koje su dinamičke i značajno se oslanjaju na JavaScript.
+    ***Burp Suite*** (plaćena verzija) sadrži integrisani *Chromium browser* koji omogućava navigaciju kroz aplikaciju, te je moguće analizirati aplikacije koje su dinamičke i značajno se oslanjaju na *JavaScript* [3].
 
-    **W3AF** omogućava *JavaScript crawling* kroz *web_spider plugin*. Ovaj crawler može koristiti *Google Chrome* ili *Chromium* *browser* za interakciju sa veb aplikacijama (preporučuje se *Google Chrome* jer ima bolje performanse). Ukoliko je potrebno analizirati neku kompleksniju veb aplikaciju, koja koristi tehnologije poput *Flash*-a i *Java applet*-a, za crawling je potrebno iskoristiti *spider_man plugin*. Ovakva analiza mora ručno da se obavlja. *spider_man plugin* pokreće HTTP proxy, a korisnik ručno navigira sajtom. Kroz taj proces *plugin* dobavlja potrebne informacije iz HTTP zahteva. 
+    **W3AF** omogućava *JavaScript crawling* kroz *web_spider plugin*. Ovaj crawler može koristiti *Google Chrome* ili *Chromium* *browser* za interakciju sa veb aplikacijama (preporučuje se *Google Chrome* jer ima bolje performanse) [4]. Ukoliko je potrebno analizirati neku kompleksniju veb aplikaciju, koja koristi tehnologije poput *Flash*-a i *Java applet*-a, za crawling je potrebno iskoristiti *spider_man plugin*. Ovakva analiza mora ručno da se obavlja. *spider_man plugin* pokreće HTTP proxy, a korisnik ručno navigira sajtom. Kroz taj proces *plugin* dobavlja potrebne informacije iz HTTP zahteva [5]. 
 
-    ***Arachni*** sadrži integrisani *browser* koji omogućava da se testiraju veb aplikacije koje koriste tehnologije kao što su HTML5, *JavaScript*, DOM manipulacija i AJAX.
+    ***Arachni*** sadrži integrisani *browser* koji omogućava da se testiraju veb aplikacije koje koriste tehnologije kao što su HTML5, *JavaScript*, DOM manipulacija i AJAX [6].
 
 - ### Mogućnost konfigurisanja
 
@@ -27,7 +27,7 @@ Da bi *crawler* mogao biti primenljiv nad modernim veb aplikacijama, mora imati 
     - način za upravljanje parametrima upita
     - da li će se postavljati *Referer* zaglavlje na poslate zahteve
     - da li cookie-ji treba da se prihvate, način na koji se obrađuju forme
-    - da li će se parsirati HTML komentari, robots.txt fajlovi, sitemap.xml fajlove, te određeni fajlovi sa metapodacima.
+    - da li će se parsirati HTML komentari, robots.txt fajlovi, sitemap.xml fajlove, te određeni fajlovi sa metapodacima [7].
     
     Prilikom konfiguracije AJAX *spider*-a moguće je podesiti:
     - koji *browser* se koristi i u kom režimu (podrazumevano je *Firefox Headless*)
@@ -40,7 +40,7 @@ Da bi *crawler* mogao biti primenljiv nad modernim veb aplikacijama, mora imati 
     - da li će se sa elementima pokušati interagovati samo jednom ili više puta
     - da li će poljima formi zadavati nasumične ili prazne vrednosti
     - da li će se operacija klika obavljati samo nad „*a*“, „*button*“ i „*input*“ elementima ili i nad nekim drugim
-    - koje vrste resursa se mogu dobaviti.
+    - koje vrste resursa se mogu dobaviti [8].
 
     ***Burp Suite*** (plaćena verzija)
     
@@ -50,12 +50,12 @@ Da bi *crawler* mogao biti primenljiv nad modernim veb aplikacijama, mora imati 
     - strategiju koja omogućava prilagođavanje specifičnoj aplikaciji (definiše odnos između brzine i pokrivenosti – default, Faster, Fastest, More complete, Most complete)
     - ograničenja za trajanje procesa na osnovu proteklog vremena, ukupnog broja HTTP zahteva i broja jedinstvenih otkrivenih tačaka u aplikaciji
     - način reakcije na funkcionalnost login-a (pokušaj samostalne registracije na aplikaciju radi login-a ili namerno slanje pogrešnih kredencijala da bi se došlo do opcija za povratak naloga – pri tome se ne šalje pogrešna lozinka za neki od zadatih korisničkih imena kako ne bi došlo do zaključavanja naloga)
-    - kako će se rukovati greškama, kao što su prekid konekcije ili timeout-ovi (može se podesiti broj uzastopnih timed-out zahteva pre pauziranja procesa, procenat timed-out zahteva pre pauziranja procesa ili ?)
-    - da li će se forme submit-ovati
-    - postavljanje vrednosti User-Agent header-a
-    - da li će se korisniku prikazivati browser (default je da režim bude headless)
+    - kako će se rukovati greškama, kao što su prekid konekcije ili *timeout*-ovi (može se podesiti broj uzastopnih *timed-out* zahteva pre pauziranja procesa ili procenat timed-out zahteva pre pauziranja procesa)
+    - da li će se forme *submit*-ovati
+    - postavljanje vrednosti *User-Agent* *header*-a
+    - da li će se korisniku prikazivati *browser* (default je da režim bude *headless*)
     - da li će se parsirati API definicije, robots.txt fajlovi, sitemap.xml fajlovi
-    - način za prepoznavanje fragmenata koji se koriste za rutiranje kod *Single Page* aplikacija.
+    - način za prepoznavanje fragmenata koji se koriste za rutiranje kod *Single Page* aplikacija [9].
 
     **W3AF**
     
@@ -65,10 +65,31 @@ Da bi *crawler* mogao biti primenljiv nad modernim veb aplikacijama, mora imati 
 
     ***Arachni***
     
-    Moguće je podesiti: 
+    Moguće je podesiti [6]: 
     - broj upotrebljenih *browser worker*-a
     - maksimalno vreme koje se proces može obavljati
     - da li će se omogućiti učitavanje slika
     - dimenzije ekrana, radi testiranja responzivnosti
     - da li će se čekati na određene elemente da se pojave na veb stranici
 
+
+----
+## Literatura
+
+[1] https://www.zaproxy.org/docs/desktop/addons/spider/
+
+[2] https://www.zaproxy.org/docs/desktop/addons/ajax-spider/
+
+[3] https://portswigger.net/burp/documentation/scanner/browser-powered-scanning
+
+[4] 
+
+[5] http://docs.w3af.org/en/latest/advanced-use-cases.html
+
+[6] https://rubydoc.info/github/Arachni/arachni
+
+[7] https://www.zaproxy.org/docs/desktop/addons/spider/options/
+
+[8] https://www.zaproxy.org/docs/desktop/addons/ajax-spider/options/
+
+[9] https://portswigger.net/burp/documentation/scanner/scan-configurations/crawl-options

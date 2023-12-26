@@ -72,3 +72,20 @@ U ovom poglavlju su razmotrene tehnike autorizacija i upravljanja sesijom koje a
     **W3AF** sadrži *plugin*-e za autentifikaciju (*generic* i *detailed*), koji obezbeđuju održavanje sesije tokom skeniranja. Oni se izvršavaju pre početka skeniranja, kako bi dobavili novu sesiju i nakon toga na svakih 5 sekundi, kako bi proverili da li je sesija još uvek aktivna i da li treba dobaviti novu. Dobijeni cookie-ji se čuvaji u cookie jar fajlu. 
 
     ***Arachni*** ima mogućnost upravljanja cookie-ima koje izdaje veb aplikacija. Oni se čuvaju u Cookie Jar-u.
+
+
+----
+## Literatura
+
+[1]
+
+[2]
+
+[3]
+
+[4]
+
+[5]
+
+[6]
+
