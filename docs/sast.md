@@ -178,6 +178,94 @@ Pravila se dele u grupe:
     - Postoji ukupno 56 pravila koja detektuju ranjivosti koje se brzo mogu popraviti [8].
 
 ## Veracode
+_Veracode Static Analysis_ predstavlja vodeće rešenje za statičku analizu bezbednosti aplikacija (SAST), pružajući brzo prepoznavanje i rešavanje problema sa bezbednošću aplikacija [19]. 
+Ovaj alat vrši sveobuhvatne analize važnih okvira (_framework_-a) i jezika, bez potrebnog pristupa programskom kodu samog radnog okvira. 
+Kao rezultat, korisnici mogu analizirati programski kod iz različitih izvora – bilo da je napisan, stečen ili preuzet. 
+Time alat olakšava merenje napretka softverskog proizvoda i daje jasniji uvid u metrike koje su neophodne za isporuku proizvoda.
+
+### Jezici
+Podržava više popularnih jezika i <i>framework</i>-a. Neki od njih su [20]:
+- Java
+- C#
+- VB.NET
+- ASP.NET with C# or VB.NET
+- C++
+- JavaScript
+- TypeScript
+- PHP
+- Scala
+- Groovy
+- Kotlin
+- Android
+- iOS
+- Dart
+- Flutter
+- Ruby on Rails
+- Apex
+- PL/SQL
+- T-SQL
+- Classic ASP
+- ColdFusion
+- Perl
+- Python
+- Go
+- Xamarin
+- .NET MAUI
+- PhoneGap/Cordova
+- Ionic
+- Titanium
+- React Native
+- COBOL
+- RPG
+- Visual Basic 6
+
+
+### Tipovi bezbednosnih analiza
+U dokumentaciji alata nije jasno istaknuta klasifikacija bezbednosnih pravila, niti su na bilo koji način opisana, za razliku od dokumentacije SonarQube alata. 
+
+Veracode nudi mogućnost "ručnog" dodavanja pravila od strane krajnjeg korisnika [22]. 
+
+### Podrška za Java programski jezik
+Za _Java_ programski jezik podržano je više _framewokr_-a [21]:
+- Adobe Experience Manager
+- Apache Axiom		
+- Apache Axis	
+- Apache Axis2	
+- Apache Chemistry
+- Apache Commons
+- Apache CXF
+- Apache Jersey	
+- Apache Oro	
+- Apache Log4j	
+- Apache Velocity
+- Apache Xerces	
+- Apache XMLBeans	
+- AWS SDK for Java	
+- Azure Functions	
+- Google App Engine	
+- Google Web Toolkit (GWT)
+- Hibernate	
+- Java Portlets	
+- Java Servlets	
+- JAX-RS	
+- JAX-WS	
+- JAXB	
+- JDBC	
+- JDOM	
+- JSF	
+- JSTL
+- Liferay
+- Micronaut	
+- Play	
+- Quarkus	
+- Servlets
+- Spring Boot
+- Spring Core	
+- Spring Data Access	
+- Spring MVC	
+- Spring Security	
+- Struts	
+- Tiles
 
 ## Checkmarx SAST
 Checkmarx SAST se ističe kao jedinstveno rešenje za analizu izvornog koda, namenjeno identifikaciji, praćenju i ispravljanju tehničkih i logičkih nedostataka u izvornom kodu [15]. 
@@ -216,8 +304,7 @@ Podržava više popularnih jezika i <i>framework</i>-a. Neki od njih su [17]:
 
 
 ### Tipovi bezbednosnih analiza
-U dokumentaciji alata nije jasno istaknuta ni jedna klasifikacija bezbednosnih pravila. Ona su samo pobrojana, u dokumentaciji nije dato nikakvo objašnjenje ili neki primeri za razliku od dokumentacije SonarQube alata. Pravila se nalaze u dokumentaciji do koje vodi referenca [].
-https://checkmarx.atlassian.net/wiki/spaces/KC/pages/1829044450/Content+Pack+Version+-+CP.9.0.0.404+Java
+U dokumentaciji alata nije jasno istaknuta ni jedna klasifikacija bezbednosnih pravila. Ona su samo pobrojana, u dokumentaciji nije dato nikakvo objašnjenje ili neki primeri za razliku od dokumentacije SonarQube alata. Pravila se nalaze u dokumentaciji do koje vodi referenca [18].
 
 ### Podrška za Java programski jezik
 Za _Java_ programski jezik podržano je više _framewokr_-a [17]:
@@ -275,3 +362,11 @@ Za _Java_ programski jezik podržano je više _framewokr_-a [17]:
 [17] Checkmarx SAST supported languages and frameworks https://checkmarx.com/resource/documents/en/34965-84681-9-3-0-supported-code-languages-and-frameworks.html
 
 [18] Checkmarx SAST supported rules for Java https://checkmarx.atlassian.net/wiki/spaces/KC/pages/1829044450/Content+Pack+Version+-+CP.9.0.0.404+Java
+
+[19] Veracode SAST about https://docs.veracode.com/r/c_static_overview
+
+[20] Veracode SAST supported languages and frameworks https://docs.veracode.com/r/r_supported_table
+
+[21] Veracode SAST supported frameworks for Java https://docs.veracode.com/r/compilation_java#java-packaging-tutorial
+
+[22] Veracode SAST about adding new rules https://docs.veracode.com/r/Create_Custom_Rules_for_Agent_Based_Scanning
