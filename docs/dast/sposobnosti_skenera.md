@@ -47,7 +47,7 @@ Skeniranje veb aplikacije predstavlja proces otkrivanja njenih ranjivosti. U ovo
 
     **W3AF**
     
-    Postoje *grep plugin*-i, čiji je zadatak analiziraju HTTP zahteve i odgovore radi prikupljanja informacija o ciljnoj aplikaciji, kao što su greške, cookie-ji, email-ovi, komentari i slično [18]. Međutim, veći je fokus na aktivnom skeniranju nego na pasivnom. 
+    Postoje *grep plugin*-i, čiji je zadatak analiziraju HTTP zahteve i odgovore radi prikupljanja informacija o ciljnoj aplikaciji, kao što su greške, *cookie*-ji, *email*-ovi, komentari i slično [18]. Međutim, veći je fokus na aktivnom skeniranju nego na pasivnom. 
 
     ***Arachni***
 
@@ -105,24 +105,24 @@ Skeniranje veb aplikacije predstavlja proces otkrivanja njenih ranjivosti. U ovo
     Konkretna podešavanja skenera nisu navedena u dokumentaciji
 
 
-- ### Ranjivosti koje se mogu otkriti ###
-    Svi alati omogućavaju otkrivanje najčešćih grupa ranjivosti, u koje spadaju *injection* napadi, *path traversal* napadi, XSS i CORS. Međutim, razlikuju se po ukupnom broju ranjivosti koje mogu da otkriju.
+- ### Ranjivosti koje se mogu otkriti
+    Svi alati omogućavaju otkrivanje najčešćih grupa ranjivosti, u koje spadaju *injection* napadi, *path traversal* napadi, XSS i CSRF. Međutim, razlikuju se po ukupnom broju ranjivosti koje mogu da otkriju.
 
     **ZAP** definiše 147 pravila za detekciju ranjivosti u aplikacijama. Međutim, moguće je sa ZAP *Marketplace*-a instalirati dodatna pravila, čime se omogućava detektovanje ukupno oko 230 ranjivosti. Njih 96 se identifikuje aktivnim skeniranjem, dok se ostali mogu identifikovati pasivnim skeniranjem [24]. 
     
     ***Burp Suite*** (plaćena verzija) definiše 170 kategorija koje obuhvataju ukupno 290 ranjivosti. Sva pravila za njihovo detektovanje su ugrađena u alat, te nije potrebno instalirati dodatne *plugin*-e [25].
 
-    **W3AF** omogućava detekciju oko 200 ranjivosti. Ne postoje ugrađena pravila, već je za svaku kategoriju ranjivosti je potrebno instralirati odgovarajući plugin [26].
+    **W3AF** omogućava detekciju oko 200 ranjivosti. Ne postoje ugrađena pravila, već je za svaku kategoriju ranjivosti je potrebno instalirati odgovarajući *plugin* [26].
     
-    ***Arachni*** omogućava detekciju oko 110 ranjivosti, čija su pravila ugrađena, odnosno nije neophodno instalirati dodatne plugin-e [6].
+    ***Arachni*** omogućava detekciju oko 110 ranjivosti, čija su pravila ugrađena, odnosno nije neophodno instalirati dodatne *plugin*-e [6].
 
-- ### Upravljanje *false positive*-ima ###
+- ### Upravljanje *false positive*-ima
 
     Prilikom upotrebe svaki od navedenih alata, moguće je da se dobiju *false positive*-i kao ranjivost prijavi nešto što ne predstavlja zaista problem.
 
-    **ZAP** omogućava dodatno podešavanje pravila skeniranja (definiše koja pravila skeniranje ulaze u okvir aktivnog skeniranja), polise skeniranja i *alert filter*-a (omogućavaju izmenu nivoa rizičnosti za detektovane ranjivosti), kako bi se smanjio broj mogućih false positive rezultata. Za pasivna pravila je moguće postaviti prag da prijave potencijalnu ranjivost.Ako je prag nizak (*Low*), više ranjivosti će biti prijavljeno, što može dovesti do većeg broja *false positive*-a. Ako je prag visok (*High*), manja je verovatnoća da je biti prijavljeni *false positive*-i, ali zato postoji mogućnost da neke stvarne ranjivosti ne budu prijavljene (*false negative*-i) [27].
+    **ZAP** omogućava dodatno podešavanje pravila skeniranja, polise skeniranja (definiše koja pravila skeniranje ulaze u okvir aktivnog skeniranja) i *alert filter*-a (omogućavaju izmenu nivoa rizičnosti za detektovane ranjivosti), kako bi se smanjio broj mogućih false positive rezultata. Za pasivna pravila je moguće postaviti prag da prijave potencijalnu ranjivost.Ako je prag nizak (*Low*), više ranjivosti će biti prijavljeno, što može dovesti do većeg broja *false positive*-a. Ako je prag visok (*High*), manja je verovatnoća da je biti prijavljeni *false positive*-i, ali zato postoji mogućnost da neke stvarne ranjivosti ne budu prijavljene (*false negative*-i) [27].
 
-    ***Burp Suite*** (plaćena verzija) omogućava da se dobijeni false positive rezultati zapamte za buduća skeniranja, kako se ne bi ponavljali. Takođe omogućava podešavanje prepoznavanja *false positive*-a. Podešavanjem preciznosti skenera moguće je smanjiti broj *false positive*-a [28].
+    ***Burp Suite*** (plaćena verzija) omogućava da se dobijeni *false positive* rezultati zapamte za buduća skeniranja, kako se ne bi ponavljali. Takođe omogućava podešavanje prepoznavanja *false positive*-a. Podešavanjem preciznosti skenera moguće je smanjiti broj *false positive*-a [28].
 
     **W3AF** i ***Arachni*** u svojim dokumentacijama ne navodi nikakav konkretan mehanizam za smanjenja broja dobijenih *false positive* rezultata.
 
