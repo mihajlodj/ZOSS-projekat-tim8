@@ -26,7 +26,7 @@ Pod mogućnostima kontrole alata se podrazumevaju aspekti koji se tiču fleksibi
 
 - ### Mogućnost konkurentnog skeniranja
 
-    **ZAP**: Moguće je konkurentno skenirati više host-ova, kao i podesiti broj niti koje će skener da koristi za jedan host [6].
+    **ZAP**: Moguće je konkurentno skenirati više *host*-ova, kao i podesiti broj niti koje će skener da koristi za jedan *host* [6].
 
     ***Burp Suite*** (plaćena verzija): Da [7]
 
