@@ -53,7 +53,7 @@ U ovom poglavlju su razmotrene tehnike autorizacija i upravljanja sesijom koje a
     - Cookie-based [6]
     - HTTP Authentication [6]
     - *Script-based* - koristi se kada je upravljanje sesijom kompleksnije [6]
-    - *Header-based* (*add-on*) - podržava proizvoljan broj *header*-a [7]
+    - *Header-based* (*add-on*) - podržava proizvoljan broj *header*-a, a da se pritom ne mora pisati skripta [7]
 
     ***Burp Suite*** omogućava konfiguraciju sledećih mehanizama za upravljenje sesijom [8]:
 

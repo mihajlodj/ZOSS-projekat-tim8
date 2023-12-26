@@ -19,9 +19,9 @@ Skeniranje veb aplikacije predstavlja proces otkrivanja njenih ranjivosti. U ovo
     
     **ZAP**: Veb aplikacije, API *endpoint*-i (API se može importovati u više formata - GraphQL, OpenAPI, SOAP, *Postman*) [7], mrežni portovi [8], veb *socket*-i [9], mobilne aplikacije (*Android* i IOS) [10]
 
-    ***Burp Suite***: Veb aplikacije, API *endpoint*-i [11], veb socket-i [12], mobilne aplikacije (*Android* i IOS) [13]
+    ***Burp Suite***: Veb aplikacije, API *endpoint*-i (API se može importovati u više formata - GraphQL, OpenAPI, SOAP, *Postman*) [11], veb socket-i [12], mobilne aplikacije (*Android* i IOS) [13]
 
-    **W3AF**: Veb aplikacije, API *endpoint*-i [9] 
+    **W3AF**: Veb aplikacije, API *endpoint*-i (potrebna OpenAPI specifikacija) [9] 
 
     ***Arachni***: Veb aplikacije [6]
 
@@ -41,7 +41,7 @@ Skeniranje veb aplikacije predstavlja proces otkrivanja njenih ranjivosti. U ovo
     -  Standard režim (podrazumevani) – ne postoje ograničenja koja se tiču toga koje operacije su dozvoljene
     -  *Attack* režim – novi čvorovi u *scope*-u se aktivno skeniraju čim se dodaju u *scope*
 
-    ***Burp Suite***
+    ***Burp Suite*** (plaćena verzija)
 
     Takođe pruža mogućnost aktivnog i pasivnog skeniranja, koji funkcionišu po istom principu kao i u slučaju ZAP alata [17].
 
@@ -77,7 +77,7 @@ Skeniranje veb aplikacije predstavlja proces otkrivanja njenih ranjivosti. U ovo
     - maksimalan broj upozorenja koja se mogu generisati pravilom
     - maksimalna dozvoljena veličina zahteva koji može biti skeniran
 
-    ***Burp Suite***
+    ***Burp Suite*** (plaćena verzija)
 
     Postoje predefinisana podešavanja skenera, koji omogućavaju da se brzo odabere odgovarajući balans između brzine i temeljnosti skeniranja. Takođe je moguće zadati sopstvena, detaljnija podešavanja, kako bi se skener još bolje prilagodio aplikaciji.
 
@@ -106,11 +106,11 @@ Skeniranje veb aplikacije predstavlja proces otkrivanja njenih ranjivosti. U ovo
 
 
 - ### Ranjivosti koje se mogu otkriti ###
-    Svi alati omogućavaju otkrivanje najčešćih grupa ranjivosti, u koje spadaju *injection* napadi, *path traversal* napadi, XSS, CORS i slično. Međutim, razlikuju se po ukupnom broju ranjivosti koje mogu da otkriju.
+    Svi alati omogućavaju otkrivanje najčešćih grupa ranjivosti, u koje spadaju *injection* napadi, *path traversal* napadi, XSS i CORS. Međutim, razlikuju se po ukupnom broju ranjivosti koje mogu da otkriju.
 
     **ZAP** definiše 147 pravila za detekciju ranjivosti u aplikacijama. Međutim, moguće je sa ZAP *Marketplace*-a instalirati dodatna pravila, čime se omogućava detektovanje ukupno oko 230 ranjivosti. Njih 96 se identifikuje aktivnim skeniranjem, dok se ostali mogu identifikovati pasivnim skeniranjem [24]. 
     
-    ***Burp Suite*** definiše 170 kategorija koje obuhvataju ukupno 290 ranjivosti. Sva pravila za njihovo detektovanje su ugrađena u alat, te nije potrebno instalirati dodatne *plugin*-e [25].
+    ***Burp Suite*** (plaćena verzija) definiše 170 kategorija koje obuhvataju ukupno 290 ranjivosti. Sva pravila za njihovo detektovanje su ugrađena u alat, te nije potrebno instalirati dodatne *plugin*-e [25].
 
     **W3AF** omogućava detekciju oko 200 ranjivosti. Ne postoje ugrađena pravila, već je za svaku kategoriju ranjivosti je potrebno instralirati odgovarajući plugin [26].
     
@@ -120,9 +120,9 @@ Skeniranje veb aplikacije predstavlja proces otkrivanja njenih ranjivosti. U ovo
 
     Prilikom upotrebe svaki od navedenih alata, moguće je da se dobiju *false positive*-i kao ranjivost prijavi nešto što ne predstavlja zaista problem.
 
-    **ZAP** omogućava dodatno podešavanje pravila skeniranja, polise skeniranja i alert filtera, kako bi se smanjio broj mogućih false positive rezultata. Za pasivna pravila je moguće postaviti prag da prijave potencijalnu ranjivost.Ako je prag nizak (*Low*), više ranjivosti će biti prijavljeno, što može dovesti do većeg broja *false positive*-a. Ako je prag visok (*High*), manja je verovatnoća da je biti prijavljeni *false positive*-i, ali zato postoji mogućnost da neke stvarne ranjivosti ne budu prijavljene (*false negative*-i) [27].
+    **ZAP** omogućava dodatno podešavanje pravila skeniranja (definiše koja pravila skeniranje ulaze u okvir aktivnog skeniranja), polise skeniranja i *alert filter*-a (omogućavaju izmenu nivoa rizičnosti za detektovane ranjivosti), kako bi se smanjio broj mogućih false positive rezultata. Za pasivna pravila je moguće postaviti prag da prijave potencijalnu ranjivost.Ako je prag nizak (*Low*), više ranjivosti će biti prijavljeno, što može dovesti do većeg broja *false positive*-a. Ako je prag visok (*High*), manja je verovatnoća da je biti prijavljeni *false positive*-i, ali zato postoji mogućnost da neke stvarne ranjivosti ne budu prijavljene (*false negative*-i) [27].
 
-    ***Burp Suite*** omogućava da se dobijeni false positive rezultati zapamte za buduća skeniranja, kako se ne bi ponavljali. Takođe omogućava podešavanje prepoznavanja *false positive*-a. Podešavanjem preciznosti skenera moguće je smanjiti broj *false positive*-a [28].
+    ***Burp Suite*** (plaćena verzija) omogućava da se dobijeni false positive rezultati zapamte za buduća skeniranja, kako se ne bi ponavljali. Takođe omogućava podešavanje prepoznavanja *false positive*-a. Podešavanjem preciznosti skenera moguće je smanjiti broj *false positive*-a [28].
 
     **W3AF** i ***Arachni*** u svojim dokumentacijama ne navodi nikakav konkretan mehanizam za smanjenja broja dobijenih *false positive* rezultata.
 
@@ -137,7 +137,7 @@ Skeniranje veb aplikacije predstavlja proces otkrivanja njenih ranjivosti. U ovo
 
 [4] https://portswigger.net/burp/documentation/desktop/settings/network/tls
 
-[5] 
+[5] http://docs.w3af.org/en/latest/api/index.html?highlight=ssl#serve-using-tls-ssl
 
 [6] https://rubydoc.info/github/Arachni/arachni
 

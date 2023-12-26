@@ -1,12 +1,16 @@
-U okviru ovog projekta će biti analizirani i upoređeni sledeći alati za dinamičku analizu sigurnosnih aspekata softvera: OWASP ZAP, *Burp Suite* (besplatna i plaćena verzija), W3AF i *Arachni*. Dva najbolja alata će onda biti implementirana u okviru DevSecOps *pipeline*-a. Pri tome u obzir za implementaciju ne dolazi plaćena verzija *Burp Suite*-a, već on ulazi u poređenje da bi se stekao uvid u to koliko open source alati odstupaju od plaćenih alata. Kao izvor informacija o alatima će biti korišćena njihova zvanična dokumentacija, te ako u dokumentaciji nije navedena određena funkcionalnost, smatraće se da je alat ne poseduje.
+# Komparativna analiza alata
 
-**ZAP** je *open source* alat koji omogućava ručno i automatizovano testiranje sigurnosnih aspekata softvera. ZAP može da presreće, analizira, menja i prosleđuje zahteve koji se šalju između klijenta i ciljne veb aplikacije. Da bi se skeniranje moglo započeti, prvo *spider* komponenta identifikuje dostupne URL-ove aplikacije. Na osnovu njih se formira interna reprezentacija aplikacije. Ona je predstavljena kao struktura tipa stabla, kod koje svaki čvor odgovara jednom URL-u ili resursu, odnosno mogućoj tački napada. URL-ovi se grupišu u kontekste (najčešće jedan kontekst odgovara jednoj veb aplikaciji), u okviru kojih se navode podešavanja specifična da posmatranu grupu URL-ova. Pošto nisu uvek svi identifikovani URL-ovi i resursi od interesa za testiranje, zadaju se opsezi, odnosno skupovi URL-ova koji će biti testirani. Skeniranje može biti aktivno i pasivno. Pasivno skeniranje se sastoji samo iz pronalaska dostupnih URL-ova i resursa, dok aktivno skeniranje podrazumeva i napade na pronađene URL-ove i resurse. Pasivno skeniranje se smatra sigurnim jer ne menja odgovore. Pasivnim skeniranjem se mogu otkriti neke ranjivosti, te se mogu identifikovati lokacije u softveru koje zahtevaju dalju analizu. Aktivnim skeniranjem se otkriva veći skup ranjivosti u softveru. U okviru njega se softver napada poznatim napadima i moguće ga je ugroziti. Postoji dosta plugina za ZAP koji pružaju dodatne specijalizovane funkcionalnosti. ZAP takođe omogućava ručno istraživanje aplikacije, pošto su mogućnosti spider-a ograničene (npr. on unosi samo podrazumevane ili nasumične podatke u forme). Tokom ručnog istraživanja, ZAP pasivno skenira sve zahteve i odgovore, formira internu reprezentaciju aplikacije i obaveštava o potencijalnim ranjivostima [1]. 
+U okviru ovog projekta će biti analizirani i upoređeni sledeći alati za dinamičku analizu sigurnosnih aspekata softvera: OWASP ZAP, *Burp Suite* (besplatna i plaćena verzija), W3AF i *Arachni*. Dva najbolja alata će onda biti implementirana u okviru DevSecOps *pipeline*-a. Pri tome u obzir za implementaciju ne dolazi plaćena verzija *Burp Suite*-a, već on ulazi u poređenje da bi se stekao uvid u to koliko *open source* alati odstupaju od plaćenih alata. Kao izvor informacija o alatima će biti korišćena njihova zvanična dokumentacija, te ako u dokumentaciji nije navedena određena funkcionalnost, smatraće se da je alat ne poseduje.
 
-***Burp Suite*** alat, kao i ZAP, omogućava ručno i automatizovano testiranje sigurnosnih aspekata softvera, prvenstveno veb aplikacija. Ovaj alat nije *open source*, već ima *Community* verziju koja je besplatna i *Professional* i *Enterprise* verzije koje se plaćaju. Najznačajniji alati od kojih se *Burp Suite* sastoji su: *Proxy*, *Scanner*, *Intruder*, *Repeater*, *Sequencer*, *Decoder* i *Comparer*. *Proxy* alat predstavlja veb *proxy* koji presreće HTTP zahteve između *browser*-a i ciljne aplikacije, te omogućava uvid u njih i izmenu njihovog sadržaja. *Scanner* je zadužen za proces automatskog pronalaska dostupnih URL-ova (navigira kroz aplikaciju i kreira njenu reprezentaciju) i identifikacije ranjivosti veb aplikacija. Nije dostupan u besplatnoj verziji *Burp Suite*-a. *Intruder* omogućava podešavanje napada koji šalju veb aplikaciji isti zahtev više puta, sa različitim payload-ovima. Repeater omogućava izmenu i uzastopno slanje HTTP ili *WebSocket* poruka. Sequencer testira koliko su određene vrednosti zaista nasumične (npr. tokeni sesije, Anti-CSRF tokeni i tokeni za reset-ovanje lozinke). *Decoder* se koristi za enkodovanje i dekodovanje podataka u različite formate. Dekodovanje se može obavljati ručno, a moguće je i automatski detektovati format enkodovanja. Comparer omogućava poređenje razičitih podataka (najčešće HTTP zahteva ili odgovora) i prikazivanje razlika između njih [2].
+**ZAP** je *open source* alat koji omogućava ručno i automatizovano testiranje sigurnosnih aspekata softvera. ZAP može da presreće, analizira, menja i prosleđuje zahteve koji se šalju između klijenta i ciljne veb aplikacije. Da bi se skeniranje moglo započeti, prvo *spider* komponenta identifikuje dostupne URL-ove aplikacije. Na osnovu njih se formira interna reprezentacija aplikacije. Ona je predstavljena kao struktura tipa stabla, kod koje svaki čvor odgovara jednom URL-u ili resursu, odnosno mogućoj tački napada. URL-ovi se grupišu u kontekste (najčešće jedan kontekst odgovara jednoj veb aplikaciji), u okviru kojih se navode podešavanja specifična da posmatranu grupu URL-ova. Pošto nisu uvek svi identifikovani URL-ovi i resursi od interesa za testiranje, zadaju se opsezi, odnosno skupovi URL-ova koji će biti testirani. Skeniranje može biti aktivno i pasivno. Pasivno skeniranje se sastoji samo iz pronalaska dostupnih URL-ova i resursa, dok aktivno skeniranje podrazumeva i napade na pronađene URL-ove i resurse. Pasivnim skeniranjem se mogu otkriti neke ranjivosti, te se mogu identifikovati lokacije u softveru koje zahtevaju dalju analizu. Aktivnim skeniranjem se otkriva veći skup ranjivosti u softveru. U okviru njega se softver napada poznatim napadima i moguće ga je ugroziti. ZAP takođe omogućava ručno istraživanje aplikacije, pošto su mogućnosti *spider*-a ograničene (npr. on unosi samo podrazumevane ili nasumične podatke u forme). Tokom ručnog istraživanja, ZAP pasivno skenira sve zahteve i odgovore, formira internu reprezentaciju aplikacije i obaveštava korisnika o potencijalnim ranjivostima [1]. 
 
-**W3AF** je *open source framework*. Ima tri osnovna tipa plugin-a: *crawl*, *audit* i *attack*. Zadatak crawl plugin-a je da pronalaze nove URL-ove veb aplikacije, odnosno da proširuju moguću površinu napada. Pri tome je moguće uključiti više crawl plugin-a istovremeno, koji će onda funkcionisati tako da jedan plugin pronalazi novi URL na osnovu URL-a koji je drugi *plugin* pronašao, i tako u krug. Audit plugin-i generišu podatke na osnovu kojih je moguće identifikovati ranjivosti i šalju ih tačkama koje su *crawl plugin*-i otkrili. Attack plugin-i eksploatišu ranjivosti koje su audit *plugin*-i identifikovali. Osim ova tri glavna tipa, postoje i neki drugi tipovi *plugin*-a, u čije zadatke spadaju: generisanje izveštaja, identifikovanje dodatnih informacija o ciljnom sistemu (npr. operativni sistem i instalirani *web application firewall*-i), izmena HTTP zahteva i odgovora na osnovu regularnih izraza, te *bruteforce*-ovanje *login* stranice [3]. 
+***Burp Suite*** alat, kao i ZAP, omogućava ručno i automatizovano testiranje sigurnosnih aspekata softvera, prvenstveno veb aplikacija. Ovaj alat nije *open source*, već ima *Community* verziju koja je besplatna i *Professional* i *Enterprise* verzije koje se plaćaju. Najznačajniji alati od kojih se *Burp Suite* sastoji su: *Proxy*, *Scanner*, *Intruder*, *Repeater*, *Sequencer*, *Decoder* i *Comparer*. *Proxy* alat predstavlja veb *proxy* koji presreće HTTP zahteve između *browser*-a i ciljne aplikacije, te omogućava uvid u njih i izmenu njihovog sadržaja. *Scanner* je zadužen za proces automatskog pronalaska dostupnih URL-ova (navigira kroz aplikaciju i kreira njenu reprezentaciju) i identifikacije ranjivosti veb aplikacija. Nije dostupan u besplatnoj verziji *Burp Suite*-a. *Repeater* omogućava izmenu i ponovno slanje HTTP ili *WebSocket* poruka. On se koristi prilikom ručnog testiraja.
+*Intruder* omogućava da se više uzastopnih napada sa različitim, unapred zadatim podacima (*payload*-ovima) automatski šalju aplikaciji, da ne mora korisnik ručno ponavljati zahteve.
+*Sequencer* testira koliko su određene vrednosti zaista nasumične (npr. tokeni sesije, Anti-CSRF tokeni i tokeni za *reset*-ovanje lozinke). *Decoder* se koristi za enkodovanje i dekodovanje podataka u različite formate. Dekodovanje se može obavljati ručno, a moguće je i automatski detektovati format enkodovanja. Comparer omogućava poređenje razičitih podataka (najčešće HTTP zahteva ili odgovora) i prikazivanje razlika između njih [2].
 
-***Arachni*** je *open source framework* prvenstveno namenjen za dinamičku analizu sigurnosnih aspekata veb aplikacija. Skeniranje se vrši automatski, nakon što se zada početni URL. Pri tome je moguće zadati kriterijume za filtriranje stranica od interesa i odbacivanje redundantnih stranica. Provere sigurnosnih aspekata se dele na pasivne i aktivne. Pasivne provere proveravaju postojanje određenjih fajlova i foldera, dok aktivne provere interaguju sa veb aplikacijom preko ulaznih komponenti. Omogućeno je instaliranje plugin-a za dodavanje različitih funkcionalnosti koje nisu deo *Arachni* jezgra [4].
+**W3AF** je *open source framework*. Ima tri osnovna tipa plugin-a: *crawl*, *audit* i *attack*. Zadatak *crawl plugin*-a je da pronalaze nove URL-ove veb aplikacije, odnosno da proširuju moguću površinu napada. Pri tome je moguće uključiti više *crawl plugin*-a istovremeno, koji će onda funkcionisati tako da jedan plugin pronalazi novi URL na osnovu URL-a koji je drugi *plugin* pronašao, i tako u krug. *Audit plugin*-i generišu podatke na osnovu kojih je moguće identifikovati ranjivosti i šalju ih tačkama koje su *crawl plugin*-i otkrili. Takođe je moguće uključiti više *audit plugin*-a. *Attack plugin*-i eksploatišu ranjivosti koje su *audit* *plugin*-i identifikovali. Osim ova tri glavna tipa, postoje i neki drugi tipovi *plugin*-a, u čije zadatke spadaju: generisanje izveštaja, identifikovanje dodatnih informacija o ciljnom sistemu (npr. operativni sistem i instalirani *web application firewall*-i), izmena HTTP zahteva i odgovora na osnovu regularnih izraza, te *bruteforce*-ovanje *login* stranice [3]. 
+
+***Arachni*** je *open source framework* prvenstveno namenjen za dinamičku analizu sigurnosnih aspekata veb aplikacija. Skeniranje se vrši automatski, nakon što se zada početni URL. Pri tome je moguće zadati kriterijume za filtriranje stranica od interesa i odbacivanje redundantnih stranica. Provere sigurnosnih aspekata se dele na pasivne i aktivne. Pasivne provere proveravaju postojanje određenjih fajlova i foldera, dok aktivne provere interaguju sa veb aplikacijom preko ulaznih komponenti. Omogućeno je instaliranje *plugin*-a za dodavanje različitih funkcionalnosti koje nisu deo *Arachni* jezgra [4].
 
 Alati će se porediti po sledećim kriterijumima:
 
@@ -42,10 +46,10 @@ U tabeli ispod je dat sažetak karakteristika upoređivanih alata.
         <tr>
             <th></th>
             <th>ZAP</th>
-            <th>Burp Suite paid</th>
-            <th>Burp Suite free</th>
+            <th><i>Burp Suite paid</i></th>
+            <th><i>Burp Suite free</i></th>
             <th>W3AF</th>
-            <th>Arachni</th>
+            <th><i>Arachni</i></th>
         </tr>
         <tr>
             <td>Podržani protokoli</td>
@@ -67,7 +71,7 @@ U tabeli ispod je dat sažetak karakteristika upoređivanih alata.
             <td>Mogućnost automatskog skeniranja</td>
             <td>Da</td>
             <td>Da</td>
-            <td>-</td>
+            <td>Ne</td>
             <td>Da</td>
             <td>Da</td>
         </tr>
@@ -91,7 +95,7 @@ U tabeli ispod je dat sažetak karakteristika upoređivanih alata.
             <td>Ranjivosti koje se mogu otkriti</td>
             <td>147 ugrađeno, sa <i>add-on</i>-ima oko 230</td>
             <td>170 kategorija, 290 ranjivosti</td>
-            <td>?</td>
+            <td>-</td>
             <td>oko 200</td>
             <td>oko 110</td>
         </tr>
@@ -106,21 +110,21 @@ U tabeli ispod je dat sažetak karakteristika upoređivanih alata.
         <tr>
             <td>Upravljanje sesijom</td>
             <td>Cookie-based, HTTP Auth, Script-based, Header-based</td>
-            <td>Cookie jar, pravila upravljanja, makro</td>
-            <td>Cookie jar, pravila upravljanja, makro</td>
-            <td>Authentication plugin-i, cookie jar</td>
-            <td>Cookie jar</td>
+            <td><i>Cookie jar</i>, pravila upravljanja, makro</td>
+            <td><i>Cookie jar</i>, pravila upravljanja, makro</td>
+            <td><i>Authentication plugin</i>-i, <i>cookie jar</i></td>
+            <td><i>Cookie jar<i></td>
         </tr>
         <tr>
             <td>Podrška za moderne veb aplikacije</td>
-            <td>AJAX spider</td>
-            <td>Integrisani Chromium browser</td>
+            <td>AJAX <i>spider</i></td>
+            <td>Integrisani <i>Chromium browser</i></td>
             <td>-</td>
-            <td>web_spider plugin, spider_man plugin</td>
-            <td>Integrisani browser</td>
+            <td><i>web_spider plugin, spider_man plugin</i></td>
+            <td>Integrisani <i>browser</i></td>
         </tr>
         <tr>
-            <td>Mogućnost konfigurisanja crawler-a</td>
+            <td>Mogućnost konfigurisanja <i>crawler</i>-a</td>
             <td>Najviše mogućnosti</td>
             <td>Velik broj mogućnosti</td>
             <td>-</td>
@@ -145,8 +149,8 @@ U tabeli ispod je dat sažetak karakteristika upoređivanih alata.
         </tr>
         <tr>
             <td>Mogućnost podešavanja izveštaja</td>
-            <td>Report Generation add-on omogućava podešavanje sadržaja i formata</td>
-            <td>Report wizard omogućava podešavanje sadržaja, formata, načina prikazivanja zahteva, načina grupisanja ranjivosti, nivoa detaljnosti</td>
+            <td><i>Report Generation add-on</i> omogućava podešavanje sadržaja i formata</td>
+            <td><i>Report wizard</i> omogućava podešavanje sadržaja, formata, načina prikazivanja zahteva, načina grupisanja ranjivosti, nivoa detaljnosti</td>
             <td>-</td>
             <td>Moguće podešavanje lokacije izveštaja i uključivanja debug informacija</td>
             <td>Nije navedeno</td>
@@ -185,7 +189,7 @@ U tabeli ispod je dat sažetak karakteristika upoređivanih alata.
         </tr>
         <tr>
             <td>Podržani korisnički interfejsi</td>
-            <td>CLI, desktop aplikacija, Heads Up Display</td>
+            <td>CLI, desktop aplikacija, <i>Heads Up Display</i></td>
             <td>CLI, desktop aplikacija</td>
             <td>CLI, desktop aplikacija</td>
             <td>CLI, desktop aplikacija</td>
@@ -193,6 +197,10 @@ U tabeli ispod je dat sažetak karakteristika upoređivanih alata.
         </tr>
     </tbody>
 </table>
+
+## Zaključak
+
+Analiza alata po prethodno navedenim kriterijumima pokazuje da su najbolji alati za dinamičku analizu sigurnosnih aspekata softvera *Burp Suite* (plaćena verzija) i OWASP ZAP. Oni imaju više mogućnosti i znatno bolju dokumentaciju u odnostu na W3AF i *Arachni*. Burp Suite u nekim aspektima ima više mogućnosti od OWASP ZAP alata, ali odstupanje nije veliko. Besplatna verzija *Burp Suite*-a ne nudi mogućnosti automatskog skeniranja aplikacija i generisanja izveštaja, tako da ona nije dobar kandidat za primenu u okviru DevSecOps *pipeline*-a. Pošto se W3AF alat pokazao boljim od *Arachni* alata, on će uz OWASP ZAP alat biti implementiran u okviru DevSecOps *pipeline*-a.
 
 ----
 ## Literatura
