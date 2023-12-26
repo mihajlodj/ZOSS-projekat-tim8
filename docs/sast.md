@@ -179,7 +179,63 @@ Pravila se dele u grupe:
 
 ## Veracode
 
-## Checkmarx
+## Checkmarx SAST
+Checkmarx SAST se ističe kao jedinstveno rešenje za analizu izvornog koda, namenjeno identifikaciji, praćenju i ispravljanju tehničkih i logičkih nedostataka u izvornom kodu [15]. 
+Ovi nedostaci obuhvataju sigurnosne ranjivosti, probleme sa usklađenošću (engl. _compliance issues_) i izazove u poslovnoj logici. SAST operiše bez potrebe za kompajliranjem programskog koda, stvarajući logički graf elemenata i tokova programskog koda za kasnije upite [15]. 
+Rešenje uključuje obiman set unapred konfigurisanih upita za poznate sigurnosne ranjivosti za svaki programski jezik [15]. 
+Pomoću alata _SAST Auditor_, korisnici mogu konfigurisati dodatne upite koji se tiču aspekta sigurnosti, QA (_Quality Assurance_) i poslovne logike [15].
+
+Softver nije besplatan. Moguće je dobiti pristup besplatnoj _demo_ verziji softvera [16]. Demo verzija je ograničena u broju linija koda koje može da skenira.
+
+### Jezici
+Podržava više popularnih jezika i <i>framework</i>-a. Neki od njih su [17]:
+- Java
+- C# (.NET)
+- ASP
+- VB6
+- C
+- C++
+- PHP
+- APEX
+- Ruby
+- JavaScript
+- TypeScript
+- Visual Basic 6.0
+- Perl
+- Android
+- Objective-C
+- Swift
+- HTML/CSS
+- PL/SQL
+- Python
+- Groovy
+- Scala
+- Go
+- Kotlin
+- COBOL
+
+
+### Tipovi bezbednosnih analiza
+U dokumentaciji alata nije jasno istaknuta ni jedna klasifikacija bezbednosnih pravila. Ona su samo pobrojana, u dokumentaciji nije dato nikakvo objašnjenje ili neki primeri za razliku od dokumentacije SonarQube alata. Pravila se nalaze u dokumentaciji do koje vodi referenca [].
+https://checkmarx.atlassian.net/wiki/spaces/KC/pages/1829044450/Content+Pack+Version+-+CP.9.0.0.404+Java
+
+### Podrška za Java programski jezik
+Za _Java_ programski jezik podržano je više _framewokr_-a [17]:
+- Struts
+- Sprint MVC
+- Spring Boot
+- iBatis
+- GWT
+- Hibernate
+- OWASP ESAPI
+- JSTL FMT Taglib
+- Java Server Faces (JSF)
+- JSP
+- Google Guice
+- PrimeFaces
+- Volley (Android)
+- Velocity
+- MyBatis
 
 ## Fortify
 
@@ -211,3 +267,11 @@ Pravila se dele u grupe:
 [13] Code Smell definition by Martin Fowler https://martinfowler.com/bliki/CodeSmell.html
 
 [14] Quick Fix in SonarQube https://www.sonarsource.com/blog/sonarlint-quick-fixes/
+
+[15] Checkmarx SAST overview documentation https://checkmarx.com/resource/documents/en/34965-46311-checkmarx-sast-overview.html
+
+[16] Checkmarx SAST demo https://checkmarx.com/request-a-demo/?
+
+[17] Checkmarx SAST supported languages and frameworks https://checkmarx.com/resource/documents/en/34965-84681-9-3-0-supported-code-languages-and-frameworks.html
+
+[18] Checkmarx SAST supported rules for Java https://checkmarx.atlassian.net/wiki/spaces/KC/pages/1829044450/Content+Pack+Version+-+CP.9.0.0.404+Java
