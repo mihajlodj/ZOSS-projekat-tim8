@@ -25,5 +25,7 @@ Lista alata koji se bave <i>Interactive application security testing</i>-om je v
 [2] IAST osnove 2 - https://snyk.io/learn/application-security/iast-interactive-application-security-testing/#what-is
 
 [3] About HCL AppScan - https://help.hcltechsw.com/appscan/Standard/10.0.4/home.html
+
 [4] About Semgrep - https://semgrep.dev/docs/
+
 [5] About Contrast Security - https://docs.contrastsecurity.com/?lang=en
