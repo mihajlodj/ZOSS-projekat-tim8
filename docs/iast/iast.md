@@ -16,7 +16,7 @@ Lista alata koji se bave <i>Interactive application security testing</i>-om je v
 <h1><i>HCL AppScan</i></h1> - Postoji besplatan demo ovog alata, ali da bi mogli da koristimo ovaj alat moramo da pošaljemo rahtev <i>HCL Software</i> organizaciji. Za vreme ovog istraživanja nisam dobio nazad odgovor sa njihove strane.
 <h1><i>Semgrep</i></h1> - Za ovaj alat je isti slučaj kao i za prethodni.
 <h1><i>Contrast Security</i></h1> - Za ovaj alat je isti slućaj kao i za prethodna dva, ali su traženi potrebni podaci za slanje zahteva za demo alata dosta opširniji.
-<h1><i>Snyk</i></h1>
+<h1><i>Snyk</i></h1> - Detaljan opis ovog alata se nalazi u Snyk.md fajlu, a ovaj alat je već implementiran u <i>Jenkins pipeline</i>-u
 
 
 ## Literatura
