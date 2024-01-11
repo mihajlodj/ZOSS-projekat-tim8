@@ -1,30 +1,25 @@
-def scan_type
 def target
+def api_target
 pipeline {
     agent any
     parameters {
-        choice  choices: ["Baseline", "APIS", "Full"],
-                description: 'Type of scan that is going to perform inside the container',
-                name: 'SCAN_TYPE'
- 
-        string defaultValue: "https://juice-shop.herokuapp.com/#/",
+        string defaultValue: "http://192.168.56.1:8083/WebGoat/login",
                 description: 'Target URL to scan',
                 name: 'TARGET'
- 
-        booleanParam defaultValue: true,
-                description: 'Parameter to know if wanna generate report.',
-                name: 'GENERATE_REPORT'
+                
+        string defaultValue: "https://raw.githubusercontent.com/apox64/RestSec/master/restsec-samples/src/main/resources/docs_swagger/swagger-juiceshop.json",
+                description: 'API target',
+                name: 'API_TARGET'
     }
     stages {
         stage('Pipeline Info') {
             steps {
                 script {
-                    echo "<--Parameter Initialization-->"
+                    echo "Parameter Initialization"
                     echo """
                     The current parameters are:
-                        Scan Type: ${params.SCAN_TYPE}
                         Target: ${params.TARGET}
-                        Generate report: ${params.GENERATE_REPORT}
+                        API Target: ${params.API_TARGET}
                     """
                 }
             }
@@ -46,74 +41,101 @@ pipeline {
             }
         }
  
-        stage('Prepare wrk directory') {
-            when {
-                environment name : 'GENERATE_REPORT', value: 'true'
-            }
+        stage('Initialize wrk directory') {
             steps {
                 script {
+                    echo "Creating wrk directory"
+                    
                     sh """
                         docker exec owasp \
                         mkdir /zap/wrk
                     """
                 }
+                
+                script {
+                    echo "Moving context to wrk directory"
+                    
+                    sh 'docker cp /var/run/WebGoat.context owasp:/zap/wrk/WebGoat.context'
+                }
             }
         }
- 
-        stage('Scanning target on owasp container') {
+        
+        stage('API scan') {
             steps {
                 script {
-                    scan_type = "${params.SCAN_TYPE}"
-                    echo "----> scan_type: $scan_type"
+                    echo "API SCAN"
+                    api_target = "${params.API_TARGET}"
+                
+                    sh """
+                        docker exec owasp \
+                        zap-api-scan.py \
+                        -I -a \
+                        -t $api_target \
+                        -f openapi \
+                        -x api_report.xml \
+                        -r api_report.html \
+                        -w api_report.md
+                    """
+                }
+            }
+        }
+        
+        stage('Baseline scan') {
+            steps {
+                script {
+                    echo "BASELINE SCAN"
                     target = "${params.TARGET}"
-                    if (scan_type == "Baseline") {
-                        sh """
-                            docker exec owasp \
-                            zap-baseline.py \
-                            -I -t $target \
-                            -x report.xml \
-                            -r report.html \
-                            -w report.md
-                        """
-                    }
-                    else if (scan_type == "APIS"){
-                        sh """
-                            docker exec owasp \
-                            zap-api-scan.py \
-                            -I \
-                            -t $target \
-                            -x report.xml \
-                            -r report.html \
-                            -w report.md
-                        """
-                    }
-                    else if (scan_type == "Full"){
-                        sh """
-                            docker exec owasp \
-                            zap-full-scan.py \
-                            -I -j -a \
-                            -z "-config scanner.maxScanDurationInMins=60 -config scanner.threadPerHost=8" \
-                            -t $target \
-                            -x report.xml \
-                            -r report.html \
-                            -w report.md
-                        """
-                        //-x report-$(date +%d-%b-%Y).xml
-                    }
-                    else{
-                        echo "Something went wrong..."
-                    }
+                    
+                    sh """
+                        docker exec owasp \
+                        zap-baseline.py \
+                        -n WebGoat.context \
+                        -U test \
+                        -I -t $target \
+                        -x baseline_report.xml \
+                        -r baseline_report.html \
+                        -w baseline_report.md
+                    """
+                }
+            }
+        }
+        
+        stage('Full scan') {
+            steps {
+                script {
+                    echo "FULL SCAN"
+                    target = "${params.TARGET}"
+                    
+                    sh """
+                        docker exec owasp \
+                        zap-full-scan.py \
+                        -I -j -a \
+                        -z "-config scanner.maxScanDurationInMins=60 -config scanner.threadPerHost=8 -config view.mode=attack" \
+                        -t $target \
+                        -x full_report.xml \
+                        -r full_report.html \
+                        -w full_report.md
+                    """
+                    //-x report-$(date +%d-%b-%Y).xml
                 }
             }
         }
 
-        stage('Copy Report to Workspace') {
+        stage('Copy Reports to Workspace') {
             steps {
                 script {
                     sh '''
-                        docker cp owasp:/zap/wrk/report.xml ${WORKSPACE}/report.xml
-                        docker cp owasp:/zap/wrk/report.html ${WORKSPACE}/report.html
-                        docker cp owasp:/zap/wrk/report.md ${WORKSPACE}/report.md
+                        docker cp owasp:/zap/wrk/api_report.xml ${WORKSPACE}/api_report.xml
+                        docker cp owasp:/zap/wrk/api_report.html ${WORKSPACE}/api_report.html
+                        docker cp owasp:/zap/wrk/api_report.md ${WORKSPACE}/api_report.md
+                        
+                        docker cp owasp:/zap/wrk/baseline_report.xml ${WORKSPACE}/baseline_report.xml
+                        docker cp owasp:/zap/wrk/baseline_report.html ${WORKSPACE}/baseline_report.html
+                        docker cp owasp:/zap/wrk/baseline_report.md ${WORKSPACE}/baseline_report.md
+                        
+                        docker cp owasp:/zap/wrk/full_report.xml ${WORKSPACE}/full_report.xml
+                        docker cp owasp:/zap/wrk/full_report.html ${WORKSPACE}/full_report.html
+                        docker cp owasp:/zap/wrk/full_report.md ${WORKSPACE}/full_report.md
                     '''
                 }
             }
