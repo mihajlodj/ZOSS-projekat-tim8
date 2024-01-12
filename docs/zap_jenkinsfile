@@ -3,11 +3,11 @@ def api_target
 pipeline {
     agent any
     parameters {
-        string defaultValue: "http://192.168.56.1:8083/WebGoat/login",
+        string defaultValue: "http://192.168.56.1:3000/",
                 description: 'Target URL to scan',
                 name: 'TARGET'
                 
-        string defaultValue: "https://raw.githubusercontent.com/apox64/RestSec/master/restsec-samples/src/main/resources/docs_swagger/swagger-juiceshop.json",
+        string defaultValue: "https://raw.githubusercontent.com/elenore55/jenkins-test/main/JuiceShop.json",
                 description: 'API target',
                 name: 'API_TARGET'
     }
@@ -55,7 +55,9 @@ pipeline {
                 script {
                     echo "Moving context to wrk directory"
                     
-                    sh 'docker cp /var/run/WebGoat.context owasp:/zap/wrk/WebGoat.context'
+                    sh 'docker cp /var/run/juice.context owasp:/zap/wrk/juice.context'
+                    sh 'docker cp /var/run/Juice_Shop_Session_Management.js owasp:/zap/wrk/Juice_Shop_Session_Management.js'
+                    sh 'docker cp /var/run/Selenium_Juice_Shop.js owasp:/zap/wrk/Selenium_Juice_Shop.js'
                 }
             }
         }
@@ -89,8 +91,9 @@ pipeline {
                     sh """
                         docker exec owasp \
                         zap-baseline.py \
-                        -n WebGoat.context \
+                        -n juice.context \
                         -U test \
+                        -z "-config script.scripts(0).name='Juice_Shop_Session_Management.js' -config script.scripts(0).engine='Graal.js' -config script.scripts(0).type=session_management -config script.scripts(0).file='/zap/wrk/Juice_Shop_Session_Management.js' -config script.scripts(1).name='Selenium_Juice_Shop.js' -config script.scripts(1).engine='Graal.js' -config script.scripts(1).type=selenium -config script.scripts(1).enabled=true -config script.scripts(1).file='/zap/wrk/Selenium_Juice_Shop.js'" \
                         -I -t $target \
                         -x baseline_report.xml \
                         -r baseline_report.html \
@@ -109,8 +112,10 @@ pipeline {
                     sh """
                         docker exec owasp \
                         zap-full-scan.py \
-                        -I -j -a \
-                        -z "-config scanner.maxScanDurationInMins=60 -config scanner.threadPerHost=8 -config view.mode=attack" \
+                        -n juice.context \
+                        -U test \
+                        -I -j -a -m 5 \
+                        -z "-config scanner.maxScanDurationInMins=5 -config scanner.threadPerHost=8 -config view.mode=attack -config script.scripts(0).name='Juice_Shop_Session_Management.js' -config script.scripts(0).engine='Graal.js' -config script.scripts(0).type=session_management -config script.scripts(0).file='/zap/wrk/Juice_Shop_Session_Management.js' -config script.scripts(1).name='Selenium_Juice_Shop.js' -config script.scripts(1).engine='Graal.js' -config script.scripts(1).type=selenium -config script.scripts(1).enabled=true -config script.scripts(1).file='/zap/wrk/Selenium_Juice_Shop.js'" \
                         -t $target \
                         -x full_report.xml \
                         -r full_report.html \
