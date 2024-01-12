@@ -334,6 +334,11 @@ Fortify je komercijalni alat, a cena licenciranja može biti faktor za neke orga
 Fortify može biti teži za učenje i postavljanje okruženja za nove korisnike, za razliku od nekih svojih konkurenata.
 Kao i mnogi alati za SAST, Fortify može generisati lažne pozitive (engl. _False positives_), identifikujući probleme koji nisu stvarni bezbednosni propusti. Po ovoj stavci, na osnovu recenzija korisnika - _Fortify_ je lošiji od svojih konkurenata (npr. _Checkmarx_) [24].
 
+
+## Semgrep
+Semgrep je još jedan alat za izvršavanja statičkog testiranja bezbednosti izvornog koda. Za razliku od Fortify, Checkmarx i Veracode, ovo rešenje je u potpunosti <i>open source</i> i besplatno za upotrebu. Rezultati analiza se mogu prikazati samo lokalno, a i biti postavljeni na https://semgrep.dev gde će biti prikazani jasno i koncizno.
+Kao i Fortify, ovaj alat podržava rad sa mnogim popularnim programskim jezicima i na osnovu recenzija njegovih korisnika ima, u proseku, nizak procenat <i>false positive</i>-a. Takođe podržava i integrisanje u CI/CD <i>pipeline</i>, što ga čini sasvim solidnim rešenjem za SAST u okviru DevSecOps prakse. Povrh SAST-a, Semgrep takođe vrši i SCA (<i>Software Composition Analysis</i>) analize, tako da se može koristiti kao zamena (ili u konjukciji) za druge SCA alate.
+
 ### Jezici
 Podržava više popularnih jezika i <i>framework</i>-a. Neki od njih su [23]:
 
