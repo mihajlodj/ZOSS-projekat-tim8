@@ -27,7 +27,7 @@ Tok aktivnosti u okviru SAS tehnike je prikazan na slici [3].
 
 ![SAS graph](/docs/images/sas.png)
 
-Najčešće korišćeni alati za implementaciju DAST-a su OWASP ZAP i <i>Burp Suite</i>.
+U sklopu ovog projekta će biti obavljena [komparativna analiza](/docs/dast/poredjenje_alata.md) različitih DAST alata, te će se na osnovu dobijenih rezultata odabrati dva alata koja će biti implementirana u sklopu DevSecOps *pipeline*-a
 
 ## Literatura
 [1]	Felderer, M., Büchler, M., Johns, M., Brucker, A.D., Breu, R. and Pretschner, A., 2016. <i>Security testing: A survey. In Advances in Computers</i> (Vol. 101, pp. 1-51). Elsevier.
@@ -35,5 +35,3 @@ Najčešće korišćeni alati za implementaciju DAST-a su OWASP ZAP i <i>Burp Su
 [2]	https://cyberw1ng.medium.com/basics-of-information-disclosure-vulnerability-in-web-app-penetration-testing-2023-fce8786b227b
 
 [3]	Rangnau, T., Buijtenen, R.V., Fransen, F. and Turkmen, F., 2020, October. </i>Continuous security testing: A case study on integrating dynamic security testing tools in ci/cd pipelines</i>. In 2020 IEEE 24th International Enterprise Distributed Object Computing Conference (EDOC) (pp. 145-154). IEEE.
-
-[TODO] Mateo Tudela, F., Bermejo Higuera, J.R., Bermejo Higuera, J., Sicilia Montalvo, J.A. and Argyros, M.I., 2020. <i>On Combining Static, Dynamic and Interactive Analysis Security Testing Tools to Improve OWASP Top Ten Security Vulnerability Detection in Web Applications</i>. Applied Sciences, 10(24), p.9119.

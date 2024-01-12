@@ -178,10 +178,201 @@ Pravila se dele u grupe:
     - Postoji ukupno 56 pravila koja detektuju ranjivosti koje se brzo mogu popraviti [8].
 
 ## Veracode
+_Veracode Static Analysis_ predstavlja vodeće rešenje za statičku analizu bezbednosti aplikacija (SAST), pružajući brzo prepoznavanje i rešavanje problema sa bezbednošću aplikacija [19]. 
+Ovaj alat vrši sveobuhvatne analize važnih okvira (_framework_-a) i jezika, bez potrebnog pristupa programskom kodu samog radnog okvira. 
+Kao rezultat, korisnici mogu analizirati programski kod iz različitih izvora – bilo da je napisan, stečen ili preuzet. 
+Time alat olakšava merenje napretka softverskog proizvoda i daje jasniji uvid u metrike koje su neophodne za isporuku proizvoda.
 
-## Checkmarx
+### Jezici
+Podržava više popularnih jezika i <i>framework</i>-a. Neki od njih su [20]:
+- Java
+- C#
+- VB.NET
+- ASP.NET with C# or VB.NET
+- C++
+- JavaScript
+- TypeScript
+- PHP
+- Scala
+- Groovy
+- Kotlin
+- Android
+- iOS
+- Dart
+- Flutter
+- Ruby on Rails
+- Apex
+- PL/SQL
+- T-SQL
+- Classic ASP
+- ColdFusion
+- Perl
+- Python
+- Go
+- Xamarin
+- .NET MAUI
+- PhoneGap/Cordova
+- Ionic
+- Titanium
+- React Native
+- COBOL
+- RPG
+- Visual Basic 6
+
+
+### Tipovi bezbednosnih analiza
+U dokumentaciji alata nije jasno istaknuta klasifikacija bezbednosnih pravila, niti su na bilo koji način opisana, za razliku od dokumentacije SonarQube alata. 
+
+Veracode nudi mogućnost "ručnog" dodavanja pravila od strane krajnjeg korisnika [22]. 
+
+### Podrška za Java programski jezik
+Za _Java_ programski jezik podržano je više _framewokr_-a [21]:
+- Adobe Experience Manager
+- Apache Axiom		
+- Apache Axis	
+- Apache Axis2	
+- Apache Chemistry
+- Apache Commons
+- Apache CXF
+- Apache Jersey	
+- Apache Oro	
+- Apache Log4j	
+- Apache Velocity
+- Apache Xerces	
+- Apache XMLBeans	
+- AWS SDK for Java	
+- Azure Functions	
+- Google App Engine	
+- Google Web Toolkit (GWT)
+- Hibernate	
+- Java Portlets	
+- Java Servlets	
+- JAX-RS	
+- JAX-WS	
+- JAXB	
+- JDBC	
+- JDOM	
+- JSF	
+- JSTL
+- Liferay
+- Micronaut	
+- Play	
+- Quarkus	
+- Servlets
+- Spring Boot
+- Spring Core	
+- Spring Data Access	
+- Spring MVC	
+- Spring Security	
+- Struts	
+- Tiles
+
+## Checkmarx SAST
+Checkmarx SAST se ističe kao jedinstveno rešenje za analizu izvornog koda, namenjeno identifikaciji, praćenju i ispravljanju tehničkih i logičkih nedostataka u izvornom kodu [15]. 
+Ovi nedostaci obuhvataju sigurnosne ranjivosti, probleme sa usklađenošću (engl. _compliance issues_) i izazove u poslovnoj logici. SAST operiše bez potrebe za kompajliranjem programskog koda, stvarajući logički graf elemenata i tokova programskog koda za kasnije upite [15]. 
+Rešenje uključuje obiman set unapred konfigurisanih upita za poznate sigurnosne ranjivosti za svaki programski jezik [15]. 
+Pomoću alata _SAST Auditor_, korisnici mogu konfigurisati dodatne upite koji se tiču aspekta sigurnosti, QA (_Quality Assurance_) i poslovne logike [15].
+
+Softver nije besplatan. Moguće je dobiti pristup besplatnoj _demo_ verziji softvera [16]. Demo verzija je ograničena u broju linija koda koje može da skenira.
+
+### Jezici
+Podržava više popularnih jezika i <i>framework</i>-a. Neki od njih su [17]:
+- Java
+- C# (.NET)
+- ASP
+- VB6
+- C
+- C++
+- PHP
+- APEX
+- Ruby
+- JavaScript
+- TypeScript
+- Visual Basic 6.0
+- Perl
+- Android
+- Objective-C
+- Swift
+- HTML/CSS
+- PL/SQL
+- Python
+- Groovy
+- Scala
+- Go
+- Kotlin
+- COBOL
+
+
+### Tipovi bezbednosnih analiza
+U dokumentaciji alata nije jasno istaknuta ni jedna klasifikacija bezbednosnih pravila. Ona su samo pobrojana, u dokumentaciji nije dato nikakvo objašnjenje ili neki primeri za razliku od dokumentacije SonarQube alata. Pravila se nalaze u dokumentaciji do koje vodi referenca [18].
+
+### Podrška za Java programski jezik
+Za _Java_ programski jezik podržano je više _framewokr_-a [17]:
+- Struts
+- Sprint MVC
+- Spring Boot
+- iBatis
+- GWT
+- Hibernate
+- OWASP ESAPI
+- JSTL FMT Taglib
+- Java Server Faces (JSF)
+- JSP
+- Google Guice
+- PrimeFaces
+- Volley (Android)
+- Velocity
+- MyBatis
 
 ## Fortify
+Fortify Static Application Security Testing (SAST) je alat namenjen analizi programskog koda radi pronalaženja bezbednosnih propusta. Razvijen je od strane kompanije Micro Focus.
+Alat vrši temeljnu i sveobuhvatnu analizu programskog koda aplikacije, pokrivajući širok spektar programskih jezika i radnih okvira (engl. _frameworks_).
+Integriše se sa popularnim integrisanim razvojnim okruženjima (Jetbrains, Eclipse, Visual Studio, ...) i alatima za CI/CD (Jenkins).
+Korisnici mogu definisati i prilagoditi bezbednosna pravila i politike prema svojim specifičnim zahtevima i standardima usklađenosti, prilagođavajući analizu potrebama njihove aplikacije.
+
+Fortify je komercijalni alat, a cena licenciranja može biti faktor za neke organizacije, posebno manje koje imaju budžetska ograničenja.
+Fortify može biti teži za učenje i postavljanje okruženja za nove korisnike, za razliku od nekih svojih konkurenata.
+Kao i mnogi alati za SAST, Fortify može generisati lažne pozitive (engl. _False positives_), identifikujući probleme koji nisu stvarni bezbednosni propusti. Po ovoj stavci, na osnovu recenzija korisnika - _Fortify_ je lošiji od svojih konkurenata (npr. _Checkmarx_) [24].
+
+### Jezici
+Podržava više popularnih jezika i <i>framework</i>-a. Neki od njih su [23]:
+
+- ABAP/BSP
+- ActionScript
+- Apex
+- ASP.NET
+- C# (.NET)
+- C
+- C++
+- Classic
+- ASP (with VBScript)
+- COBOL
+- ColdFusion CFML
+- Go
+- HTML
+- Java (including Android)
+- JavaScript/AJAX
+- JSP
+- Kotlin
+- MXML (Flex)
+- Objective C
+- PHP
+- PL/SQL
+- Python
+- Ruby
+- Swift
+- T-SQL
+- VB.NET
+- VBScript
+- Visual Basic
+- XML
+
+### Tipovi bezbednosnih analiza
+Pretragom dokumentacije nije pronađena klasifikacija pravila koje alat koristi za detekciju ranjivosti. Takođe nisu pronađena ni sama pravila. 
+
+### Podrška za Java programski jezik
+Pretragom dokumentacije alata, kao i relevantnih alternativnih izvora infromacija na internetu nije pronađena dokumentacija koja govori o podržanim radnim okvirima (engl. _frameworks_) koji su podržani od strane alata. 
+
 
 ## Literatura
 [1] Aloraini, B., Nagappan, M., German, D. M., Hayashi, S., & Higo, Y. (2019). An empirical study of security warnings from static application security testing tools. <i>Journal of Systems and Software</i>, 158, 110427.
@@ -211,3 +402,23 @@ Pravila se dele u grupe:
 [13] Code Smell definition by Martin Fowler https://martinfowler.com/bliki/CodeSmell.html
 
 [14] Quick Fix in SonarQube https://www.sonarsource.com/blog/sonarlint-quick-fixes/
+
+[15] Checkmarx SAST overview documentation https://checkmarx.com/resource/documents/en/34965-46311-checkmarx-sast-overview.html
+
+[16] Checkmarx SAST demo https://checkmarx.com/request-a-demo/?
+
+[17] Checkmarx SAST supported languages and frameworks https://checkmarx.com/resource/documents/en/34965-84681-9-3-0-supported-code-languages-and-frameworks.html
+
+[18] Checkmarx SAST supported rules for Java https://checkmarx.atlassian.net/wiki/spaces/KC/pages/1829044450/Content+Pack+Version+-+CP.9.0.0.404+Java
+
+[19] Veracode SAST about https://docs.veracode.com/r/c_static_overview
+
+[20] Veracode SAST supported languages and frameworks https://docs.veracode.com/r/r_supported_table
+
+[21] Veracode SAST supported frameworks for Java https://docs.veracode.com/r/compilation_java#java-packaging-tutorial
+
+[22] Veracode SAST about adding new rules https://docs.veracode.com/r/Create_Custom_Rules_for_Agent_Based_Scanning
+
+[23] Fortify supported languages https://www.appsecsanta.com/fortify-static-code-analyzer#:~:text=PL%2FSQL%2C%20Python%2C%20Ruby,%2C%20Visual%20Basic%2C%20and%20XML.
+
+[24] Comparison between Fortify and Checkmarx https://www.peerspot.com/questions/what-is-the-biggest-difference-between-checkmarx-and-fortify
