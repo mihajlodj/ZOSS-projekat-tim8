@@ -103,4 +103,4 @@ Ovde smo naišli na problem dostupnosti alata. Da bi dobili pristup alatu neopho
 
 [5] About Sken.ai in Jenkins - https://plugins.jenkins.io/skenai/
 
-[5] About Breachlock in Jenkins - https://plugins.jenkins.io/breachlock-dast/
+[6] About Breachlock in Jenkins - https://plugins.jenkins.io/breachlock-dast/
