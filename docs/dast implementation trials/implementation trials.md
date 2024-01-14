@@ -14,8 +14,9 @@ Kao alternativu smo našli stariji <i>Windows</i> instaler na sajtu [Source Forg
 ## Arachni Scanner
 Kod ovog alata postoji više problema. 
  - Prvi jeste da je podrška za ovaj alat prekinuta. Uprkos tome uspeli smo da instaliramo i integrišemo ovaj alat u naš <i>Jenkins pipeline</i>. 
- - Drugi problem jeste to što ovaj alat ne može da skenira <i>localhost</i> stranice. 
+ - Drugi problem jeste to što ovaj alat ne može da skenira <i>localhost</i> stranice.  
  ![Arachni graph](/docs/images/arachni_noLocalHost.PNG)
+
  - Treći problem jeste nepoklapanje odgovarajućih verzija <i>chroma</i>.
  ![Arachni graph](/docs/images/arachni_chromePNG.PNG)
 
@@ -74,7 +75,18 @@ pipeline {
 
 ## Nuclei
 Problem kod ovag alata je taj iako može da se implementira u <i>Jenkins</i>-u ima ograničenja na <i>Freestyle project</i>-e. Nema podršku za implementaciju u sam <i>pipeline</i>.
+
 ![Nuclei graph](/docs/images/Nuclei.PNG)
+
+## Sken.ai
+Problem kod ovog alata je bila neaktivna stranica. Praćenjem linka koji se nalazi na <i>jenkins plugin</i> stranici dolazimo do stranice koja nije aktivna.
+
+![Sken graph](/docs/images/skenaiNosite.PNG)
+
+![Sken graph](/docs/images/skenActualPage.PNG)
+
+
+
 
 
 ## Literatura
@@ -84,6 +96,4 @@ Problem kod ovag alata je taj iako može da se implementira u <i>Jenkins</i>-u i
 
 [3] About SOOS - https://soos.io
 
-[4] About Semgrep - https://semgrep.dev/docs/
-
-[5] About Contrast Security - https://docs.contrastsecurity.com/?lang=en
+[4] About Nuclei in Jenkins - https://plugins.jenkins.io/nuclei/
