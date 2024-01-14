@@ -57,13 +57,17 @@ pipeline {
 
 ```
 
+## Nuclei
+Problem kod ovag alata je taj iako može da se implementira u <i>Jenkins</i>-u ima ograničenja na <i>Freestyle project</i>-e. Nema podršku za implementaciju u sam <i>pipeline</i>.
+![Nuclei graph](/docs/images/Nuclei.PNG)
+
 
 ## Literatura
 [1] About W3af - https://w3af.org
 
-[2] IAST osnove 2 - https://snyk.io/learn/application-security/iast-interactive-application-security-testing/#what-is
+[2] About Arachni Scanner - https://github.com/Arachni/arachni
 
-[3] About HCL AppScan - https://help.hcltechsw.com/appscan/Standard/10.0.4/home.html
+[3] About SOOS - https://soos.io
 
 [4] About Semgrep - https://semgrep.dev/docs/
 
