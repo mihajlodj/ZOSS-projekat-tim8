@@ -22,6 +22,35 @@ docker: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is t
 See 'docker run --help'.
 ```
 
+Primer <i>pipeline</i>-a: 
+```
+pipeline {
+    agent any
+
+    environment {
+        SOOS_PROJECT_NAME = "Jenkins SOOS DAST Analysis"
+        SOOS_SCAN_MODE = "baseline"
+        SOOS_API_BASE_URL= "https://api.soos.io/api/"
+        SOOS_TARGET_URL= "http://localhost:3000/#/"
+    }
+
+    stages {
+        stage('SOOS DAST Analysis') {
+            steps {
+                sh '''
+                    PARAMS="--clientId=${jtrsqusyr} --apiKey=${MTlkMDM2ZjQtNzZhYy00M2ZlLWJiZjktNzY2OTAxNDhkYWNm} --projectName=${SOOS_PROJECT_NAME} --scanMode=${SOOS_SCAN_MODE} --apiURL=${SOOS_API_BASE_URL} --integrationName=\"Jenkins\""
+                    
+                    PARAMS="${PARAMS} --debug"
+                    PARAMS="${PARAMS} --ajaxSpider"
+                    docker run --rm soosio/dast ${SOOS_TARGET_URL} $PARAMS 
+                '''
+            }
+        }
+    }
+}
+
+```
+
 
 ## Literatura
 [1] About W3af - https://w3af.org
