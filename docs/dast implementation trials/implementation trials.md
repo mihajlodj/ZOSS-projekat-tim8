@@ -38,7 +38,7 @@ pipeline {
         stage('SOOS DAST Analysis') {
             steps {
                 sh '''
-                    PARAMS="--clientId=${jtrsqusyr} --apiKey=${MTlkMDM2ZjQtNzZhYy00M2ZlLWJiZjktNzY2OTAxNDhkYWNm} --projectName=${SOOS_PROJECT_NAME} --scanMode=${SOOS_SCAN_MODE} --apiURL=${SOOS_API_BASE_URL} --integrationName=\"Jenkins\""
+                    PARAMS="--clientId=${jtrsqusur} --apiKey=${MTlkMDM2ZjQtNzZhYyOOM2ZlLWJiZjktNzY20TAxNDhkYWNm} --projectName=${SOOS_PROJECT_NAME} --scanMode=${SOOS_SCAN_MODE} --apiURL=${SOOS_API_BASE_URL} --integrationName=\"Jenkins\""
                     
                     PARAMS="${PARAMS} --debug"
                     PARAMS="${PARAMS} --ajaxSpider"
