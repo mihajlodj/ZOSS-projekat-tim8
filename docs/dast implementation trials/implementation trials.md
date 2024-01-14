@@ -79,7 +79,7 @@ Problem kod ovag alata je taj iako može da se implementira u <i>Jenkins</i>-u i
 ![Nuclei graph](/docs/images/Nuclei.PNG)
 
 ## Sken.ai
-Problem kod ovog alata je bila neaktivna stranica. Praćenjem linka koji se nalazi na <i>jenkins plugin</i> stranici dolazimo do stranice koja nije aktivna.
+Problem kod ovog alata je bila neaktivna stranica. Praćenjem linka koji se nalazi na <i>jenkins plugin</i> stranici dolazimo do stranice koja nije aktivna. Iz tog razloga ne možemo da naprvimo traženi nalog zarad korišćenja ovog alata.
 
 ![Sken graph](/docs/images/skenaiNosite.PNG)
 
