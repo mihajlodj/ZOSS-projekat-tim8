@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    
+    tools {nodejs "NodeJs"}
+
+    stages {
+        stage('Clone sources') {
+            steps {
+                git branch: 'main', url: 'https://github.com/juice-shop/juice-shop.git'
+            }
+        }
+    
+        stage('SonarQube analysis') {
+            environment {
+                SCANNER_HOME = tool 'SonarQubeScanner';    
+            }
+            
+            steps {
+                
+                withSonarQubeEnv('SonarQube') {
+                    sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=JuiceShopProjectKey -Dsonar.organization=JuiceShopORG -Dsonar.projectName=JuiceShop -Dsonar.sources=src -Dsonar.exclusions=node_modules/**/* -Dsonar.sourceEncoding=UTF-8"
+                }
+            }
+        }
+    }
+}
