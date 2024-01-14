@@ -11,9 +11,19 @@ Kao alternativu smo našli stariji <i>Windows</i> instaler na sajtu [Source Forg
 
 ![W3AF graph](/docs/images/w3af_windows_malware.PNG)
 
+## Arachni Scanner
+
+
+## SOOS
+Kod implementacije Soos DAST alata naišli smo na problem <i>docker daemon</i>-a koji nismo uspeli da rešimo. Primer izlaza:
+```
++ docker run --rm soosio/dast http://localhost:3000/#/ --clientId= --apiKey= --projectName=Jenkins SOOS DAST Analysis --scanMode=baseline --apiURL=https://api.soos.io/api/ --integrationName=Jenkins --debug --ajaxSpider
+docker: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?.
+See 'docker run --help'.```
+
 
 ## Literatura
-[1] IAST osnove - https://www.veracode.com/security/interactive-application-security-testing-iast#:~:text=IAST%20(interactive%20application%20security%20testing,interacting”%20with%20the%20application%20functionality.
+[1] About W3af - https://w3af.org
 
 [2] IAST osnove 2 - https://snyk.io/learn/application-security/iast-interactive-application-security-testing/#what-is
 
