@@ -19,7 +19,8 @@ Kod implementacije Soos DAST alata naišli smo na problem <i>docker daemon</i>-a
 ```
 + docker run --rm soosio/dast http://localhost:3000/#/ --clientId= --apiKey= --projectName=Jenkins SOOS DAST Analysis --scanMode=baseline --apiURL=https://api.soos.io/api/ --integrationName=Jenkins --debug --ajaxSpider
 docker: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?.
-See 'docker run --help'.```
+See 'docker run --help'.
+```
 
 
 ## Literatura
