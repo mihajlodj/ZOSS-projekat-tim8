@@ -85,7 +85,10 @@ Problem kod ovog alata je bila neaktivna stranica. Praćenjem linka koji se nala
 
 ![Sken graph](/docs/images/skenActualPage.PNG)
 
+## Breachlock
+Ovde smo naišli na problem dostupnosti alata. Da bi dobili pristup alatu neophodno je da agnciji <i>Breachlock</i> pošaljemo zahtev sa osnovnim podacima o sebi kao i e-mail adresu i broj telefona. Zbog tih zahteva nismo kreirali naloga na njihovom sajtu, te nismo uspeli da implementiramo ovaj alat.
 
+![Breachlock graph](/docs/images/breachlock.PNG)
 
 
 
@@ -99,3 +102,5 @@ Problem kod ovog alata je bila neaktivna stranica. Praćenjem linka koji se nala
 [4] About Nuclei in Jenkins - https://plugins.jenkins.io/nuclei/
 
 [5] About Sken.ai in Jenkins - https://plugins.jenkins.io/skenai/
+
+[5] About Breachlock in Jenkins - https://plugins.jenkins.io/breachlock-dast/
