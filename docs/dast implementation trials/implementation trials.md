@@ -12,6 +12,7 @@ Kao alternativu smo našli stariji <i>Windows</i> instaler na sajtu [Source Forg
 ![W3AF graph](/docs/images/w3af_windows_malware.PNG)
 
 ## Arachni Scanner
+Kod ovog alata postoji više problema. Prvi jeste da je podrška za ovaj alat prekinuta. Uprkos tome uspeli smo da instaliramo i integrišemo ovaj alat u naš <i>Jenkins pipeline</i>. Drugi problem jeste to što ovaj alat ne može da skenira <i>localhost</i> stranice. Treći problem jeste to što neke javne stranice kao što je [OWASP Juice Shop](https://juice-shop.herokuapp.com/#/) zabranjuju njihovo skeniranje.
 
 
 ## SOOS
