@@ -19,6 +19,21 @@ Kod ovog alata postoji više problema.
  - Treći problem jeste nepoklapanje odgovarajućih verzija <i>chroma</i>.
  ![Arachni graph](/docs/images/arachni_chromePNG.PNG)
 
+Primer <i>pipeline</i>-a: 
+```
+pipeline {
+   agent any
+   stages {
+      stage('Scanning') {
+         steps {
+            arachniScanner checks: '', format: 'json', scope: [excludePathPattern: '', pageLimit: '100'], url: 'http://localhost:3000/#/', userConfig: [filename: '']
+         }
+      }
+   }
+}
+
+```
+
 
 ## SOOS
 Kod implementacije Soos DAST alata naišli smo na problem <i>docker daemon</i>-a koji nismo uspeli da rešimo. Primer izlaza:
