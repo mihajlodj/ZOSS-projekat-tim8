@@ -4,9 +4,12 @@ Prilikom implementacije DAST alata naleteli smo na razne probleme i poteškoće.
 
 ## W3AF
 Problem kod W3AF DAST alata jeste to što novije verzije ovog alata ne podržavaju <i>Windows</i> operativni sistem, kao što je i prikazano na slici ispod.
+
 ![W3AF graph](/docs/images/w3af_windows.PNG)
 
-Kao alternativu smo našli stariji <i>Windows</i> instaler na sajtu [Source Forge](https://sourceforge.net/projects/w3af/)
+Kao alternativu smo našli stariji <i>Windows</i> instaler na sajtu [Source Forge](https://sourceforge.net/projects/w3af/). Problem kod ovog pristupa jeste što je i na samom sajtu naglašeno da je <i>malware</i> detektovan u instalacionom fajlu.
+
+![W3AF graph](/docs/images/w3af_windows_malware.PNG)
 
 
 ## Literatura
