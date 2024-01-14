@@ -97,3 +97,5 @@ Problem kod ovog alata je bila neaktivna stranica. Praćenjem linka koji se nala
 [3] About SOOS - https://soos.io
 
 [4] About Nuclei in Jenkins - https://plugins.jenkins.io/nuclei/
+
+[5] About Sken.ai in Jenkins - https://plugins.jenkins.io/skenai/
