@@ -3,8 +3,10 @@
 Prilikom implementacije DAST alata naleteli smo na razne probleme i poteškoće. OWASP ZAP alat je uspešno implementiran i integriran u <i>Jenkins pipeline</i>, dok ostale alate nismo uspeli da implementiramo iz raznih razloga. U nastavku su dokumentovani svi DAST alati koje nismo uspeli da implementiramo kao i razlozi zbog kojih to nismmo uspeli.
 
 ## W3AF
-Problem kod W3AF DAST alata jeste to što novije verzije ovog alata ne podržavaju <i>Windows</i> operativni sistem.
+Problem kod W3AF DAST alata jeste to što novije verzije ovog alata ne podržavaju <i>Windows</i> operativni sistem, kao što je i prikazano na slici ispod.
 ![W3AF graph](/docs/images/w3af_windows.PNG)
+
+Kao alternativu smo našli stariji <i>Windows</i> instaler na sajtu [Source Forge](https://sourceforge.net/projects/w3af/)
 
 
 ## Literatura
