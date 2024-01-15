@@ -2,63 +2,51 @@ def zap_target = "http://192.168.56.1:3000/"
 def zap_api_target = "https://raw.githubusercontent.com/elenore55/jenkins-test/main/JuiceShop.json"
 def today
 
+void uploadToDefectDojo(String scanType, String reportName, String reportType) {
+    today = sh(script: 'date +%Y-%m-%d', returnStdout: true).trim()
+    sh """
+        curl -X 'POST' \
+            'http://192.168.56.1:8080/api/v2/import-scan/' \
+            -H 'accept: application/json' \
+            -H 'Content-Type: multipart/form-data' \
+            -H 'Authorization: Token cef0d4dbcc7cc84717c3e2bb7538e048a0eb8a79' \
+            -F 'scan_date=$today' \
+            -F 'minimum_severity=Info' \
+            -F 'active=true' \
+            -F 'verified=true' \
+            -F 'scan_type=$scanType' \
+            -F 'file=@${WORKSPACE}/$reportName;type=$reportType' \
+            -F 'product_name=ZOSS-Project' \
+            -F 'engagement_name=AdHoc Import - Sun, 14 Jan 2024 12:48:56' \
+            -F 'close_old_findings=false' \
+            -F 'close_old_findings_product_scope=false' \
+            -F 'push_to_jira=false' \
+            -F 'create_finding_groups_for_all_findings=true'
+    """
+}
+
 pipeline {
     agent any
-    
-    parameters {
-        string defaultValue: "http://192.168.56.1:3000/",
-                description: 'Target URL to scan',
-                name: 'TARGET'
-                
-        string defaultValue: "https://raw.githubusercontent.com/elenore55/jenkins-test/main/JuiceShop.json",
-                description: 'API target',
-                name: 'API_TARGET'
-    }
 
     tools {nodejs "NodeJs"}
-
+    
     stages {
-
+        
         // GIT SECRETS - TRUFFLEHOG
-
+        
         stage('Git Secrets Scan') {
             steps {
                 script {
                     sh 'docker pull trufflesecurity/trufflehog:latest'
                     sh 'docker run -t trufflesecurity/trufflehog git https://github.com/juice-shop/juice-shop.git --json >> ${WORKSPACE}/truffle_findings.json'
                 }
+                
+                uploadToDefectDojo('Trufflehog Scan', 'truffle_findings.json', 'application/json')
             }
         }
         
-        stage('Upload Git Secrets Results') {
-            steps {
-                script {
-                    today = sh(script: 'date +%Y-%m-%d', returnStdout: true).trim()
-                    sh """
-                        curl -X 'POST' \
-                          'http://192.168.56.1:8080/api/v2/import-scan/' \
-                          -H 'accept: application/json' \
-                          -H 'Content-Type: multipart/form-data' \
-                          -H 'Authorization: Token cef0d4dbcc7cc84717c3e2bb7538e048a0eb8a79' \
-                          -F 'scan_date=$today' \
-                          -F 'minimum_severity=Info' \
-                          -F 'active=true' \
-                          -F 'verified=true' \
-                          -F 'scan_type=Trufflehog Scan' \
-                          -F 'file=@${WORKSPACE}/truffle_findings.json;type=application/json' \
-                          -F 'product_name=ZOSS-Project' \
-                          -F 'engagement_name=AdHoc Import - Sun, 14 Jan 2024 12:48:56' \
-                          -F 'close_old_findings=false' \
-                          -F 'close_old_findings_product_scope=false' \
-                          -F 'push_to_jira=false' \
-                          -F 'create_finding_groups_for_all_findings=true'
-                    """
-                }
-            }
-        }
-
         // SCA - SNYK
-
+        
         stage('SCA Preparation') {
             steps {
                 script {
@@ -83,41 +71,11 @@ pipeline {
                     snykTokenId: 'SnykTokenId',
                     targetFile: 'package.json',
                     failOnError: false,
-                    failOnIssues: false
+                    failOnIssues: false,
+                    additionalArguments: '--json-file-output=${WORKSPACE}/snyk_findings.json'
                 )
-            }
-        }
-        
-        stage('Upload Snyk Report') {
-            steps {
-                script {
-                    today = sh(script: 'date +%Y-%m-%d', returnStdout: true).trim()
-                    def reportFile = sh(script: 'ls -t ${WORKSPACE}/*_snyk_report.json | head -n 1', returnStdout: true).trim()
-                    echo "${reportFile}"
-                    if (reportFile) {
-                        sh """
-                            curl -X 'POST' \
-                              'http://192.168.56.1:8080/api/v2/import-scan/' \
-                              -H 'accept: application/json' \
-                              -H 'Content-Type: multipart/form-data' \
-                              -H 'Authorization: Token cef0d4dbcc7cc84717c3e2bb7538e048a0eb8a79' \
-                              -F 'scan_date=$today' \
-                              -F 'minimum_severity=Info' \
-                              -F 'active=true' \
-                              -F 'verified=true' \
-                              -F 'scan_type=Snyk Scan' \
-                              -F 'file=@${reportFile};type=application/json' \
-                              -F 'product_name=ZOSS-Project' \
-                              -F 'engagement_name=AdHoc Import - Sun, 14 Jan 2024 12:48:56' \
-                              -F 'close_old_findings=false' \
-                              -F 'close_old_findings_product_scope=false' \
-                              -F 'push_to_jira=false' \
-                              -F 'create_finding_groups_for_all_findings=true'
-                        """
-                    } else {
-                        echo "No Snyk report file found in the workspace."
-                    }
-                }
+                
+                uploadToDefectDojo('Snyk Scan', 'snyk_findings.json', 'application/json')
             }
         }
 
@@ -141,32 +99,31 @@ pipeline {
                 }
             }
         }
-
+        
         // SAST - SEMGREP
 
         stage('Static Security Testing with Semgrep') {
             steps {
                 script {
                     sh 'pip3 install semgrep --break-system-packages'
-                    sh '/var/jenkins_home/.local/bin/semgrep ci --json --output=${WORKSPACE}/semgrep_findings.json'
+                    sh '/var/jenkins_home/.local/bin/semgrep scan --config auto --json --output=${WORKSPACE}/semgrep_findings.json'
                     sh 'cat ${WORKSPACE}/semgrep_findings.json'
                 }
+                
+                uploadToDefectDojo('Semgrep JSON Report', 'semgrep_findings.json', 'application/json')
             }
         }
-
+        
         // DAST - ZAP
-
+        
         stage('Setting up OWASP ZAP docker container') {
             steps {
                 script {
-                    echo "Pulling up last OWASP ZAP container --> Start"
                     sh 'docker pull owasp/zap2docker-stable'
-                    echo "Pulling up last VMS container --> End"
-                    echo "Starting container --> Start"
                     sh """
-                    docker run -dt --name owasp \
-                    owasp/zap2docker-stable \
-                    /bin/bash
+                        docker run -dt --name owasp \
+                        owasp/zap2docker-stable \
+                        /bin/bash
                     """
                 }
             }
@@ -242,8 +199,8 @@ pipeline {
                         zap-full-scan.py \
                         -n juice.context \
                         -U test \
-                        -I -j -a -m 5 \
-                        -z "-config scanner.maxScanDurationInMins=5 -config scanner.threadPerHost=8 -config view.mode=attack -config script.scripts(0).name='Juice_Shop_Session_Management.js' -config script.scripts(0).engine='Graal.js' -config script.scripts(0).type=session_management -config script.scripts(0).file='/zap/wrk/Juice_Shop_Session_Management.js' -config script.scripts(1).name='Selenium_Juice_Shop.js' -config script.scripts(1).engine='Graal.js' -config script.scripts(1).type=selenium -config script.scripts(1).enabled=true -config script.scripts(1).file='/zap/wrk/Selenium_Juice_Shop.js'" \
+                        -I -j -a -m 20 \
+                        -z "-config scanner.maxScanDurationInMins=20 -config scanner.threadPerHost=8 -config view.mode=attack -config script.scripts(0).name='Juice_Shop_Session_Management.js' -config script.scripts(0).engine='Graal.js' -config script.scripts(0).type=session_management -config script.scripts(0).file='/zap/wrk/Juice_Shop_Session_Management.js' -config script.scripts(1).name='Selenium_Juice_Shop.js' -config script.scripts(1).engine='Graal.js' -config script.scripts(1).type=selenium -config script.scripts(1).enabled=true -config script.scripts(1).file='/zap/wrk/Selenium_Juice_Shop.js'" \
                         -t $zap_target \
                         -x full_report.xml \
                         -r full_report.html \
@@ -274,76 +231,18 @@ pipeline {
             }
         }
         
-        stage('Upload to DefectDojo') {
+        stage('Upload reports') {
             steps {
-                script {
-                    today = sh(script: 'date +%Y-%m-%d', returnStdout: true).trim()
-                    sh """
-                        curl -X 'POST' \
-                          'http://192.168.56.1:8080/api/v2/import-scan/' \
-                          -H 'accept: application/json' \
-                          -H 'Content-Type: multipart/form-data' \
-                          -H 'Authorization: Token cef0d4dbcc7cc84717c3e2bb7538e048a0eb8a79' \
-                          -F 'scan_date=$today' \
-                          -F 'minimum_severity=Info' \
-                          -F 'active=true' \
-                          -F 'verified=true' \
-                          -F 'scan_type=ZAP Scan' \
-                          -F 'file=@${WORKSPACE}/api_report.xml;type=text/xml' \
-                          -F 'product_name=ZOSS-Project' \
-                          -F 'engagement_name=AdHoc Import - Sun, 14 Jan 2024 12:48:56' \
-                          -F 'close_old_findings=false' \
-                          -F 'close_old_findings_product_scope=false' \
-                          -F 'push_to_jira=false' \
-                          -F 'create_finding_groups_for_all_findings=true'
-                    """
-                    sh """
-                        curl -X 'POST' \
-                          'http://192.168.56.1:8080/api/v2/import-scan/' \
-                          -H 'accept: application/json' \
-                          -H 'Content-Type: multipart/form-data' \
-                          -H 'Authorization: Token cef0d4dbcc7cc84717c3e2bb7538e048a0eb8a79' \
-                          -F 'scan_date=$today' \
-                          -F 'minimum_severity=Info' \
-                          -F 'active=true' \
-                          -F 'verified=true' \
-                          -F 'scan_type=ZAP Scan' \
-                          -F 'file=@${WORKSPACE}/baseline_report.xml;type=text/xml' \
-                          -F 'product_name=ZOSS-Project' \
-                          -F 'engagement_name=AdHoc Import - Sun, 14 Jan 2024 12:48:56' \
-                          -F 'close_old_findings=false' \
-                          -F 'close_old_findings_product_scope=false' \
-                          -F 'push_to_jira=false' \
-                          -F 'create_finding_groups_for_all_findings=true'
-                    """
-                    sh """
-                        curl -X 'POST' \
-                          'http://192.168.56.1:8080/api/v2/import-scan/' \
-                          -H 'accept: application/json' \
-                          -H 'Content-Type: multipart/form-data' \
-                          -H 'Authorization: Token cef0d4dbcc7cc84717c3e2bb7538e048a0eb8a79' \
-                          -F 'scan_date=$today' \
-                          -F 'minimum_severity=Info' \
-                          -F 'active=true' \
-                          -F 'verified=true' \
-                          -F 'scan_type=ZAP Scan' \
-                          -F 'file=@${WORKSPACE}/full_report.xml;type=text/xml' \
-                          -F 'product_name=ZOSS-Project' \
-                          -F 'engagement_name=AdHoc Import - Sun, 14 Jan 2024 12:48:56' \
-                          -F 'close_old_findings=false' \
-                          -F 'close_old_findings_product_scope=false' \
-                          -F 'push_to_jira=false' \
-                          -F 'create_finding_groups_for_all_findings=true'
-                    """
-                }
+                uploadToDefectDojo('Zap Scan', 'api_report.xml', 'text/xml')
+                uploadToDefectDojo('Zap Scan', 'baseline_report.xml', 'text/xml')
+                uploadToDefectDojo('Zap Scan', 'full_report.xml', 'text/xml')
             }
         }
-
     }
 
     post {
         always {
-            echo "Removing container"
+            echo "Removing OWASP ZAP container"
             sh '''
                 docker stop owasp
                 docker rm owasp
