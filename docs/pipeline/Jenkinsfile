@@ -233,9 +233,9 @@ pipeline {
         
         stage('Upload reports') {
             steps {
-                uploadToDefectDojo('Zap Scan', 'api_report.xml', 'text/xml')
-                uploadToDefectDojo('Zap Scan', 'baseline_report.xml', 'text/xml')
-                uploadToDefectDojo('Zap Scan', 'full_report.xml', 'text/xml')
+                uploadToDefectDojo('ZAP Scan', 'api_report.xml', 'text/xml')
+                uploadToDefectDojo('ZAP Scan', 'baseline_report.xml', 'text/xml')
+                uploadToDefectDojo('ZAP Scan', 'full_report.xml', 'text/xml')
             }
         }
     }
