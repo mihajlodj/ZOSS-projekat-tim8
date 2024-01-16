@@ -12,13 +12,22 @@ pipeline {
     
         stage('SonarQube analysis') {
             environment {
-                SCANNER_HOME = tool 'SonarQubeScanner';    
+                SCANNER_HOME = tool 'SonarQubeScanner';
+                SONARQUBE_URL = 'sonarqube:9000'
+                PROJECT_KEY = 'JuiceShopProjectKey'
             }
             
             steps {
                 
                 withSonarQubeEnv('SonarQube') {
-                    sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=JuiceShopProjectKey -Dsonar.organization=JuiceShopORG -Dsonar.projectName=JuiceShop -Dsonar.sources=src -Dsonar.exclusions=node_modules/**/* -Dsonar.sourceEncoding=UTF-8"
+                    //sh "npm install -g sonar-report"
+                    sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectKey=JuiceShopProjectKey -Dsonar.organization=JuiceShopORG -Dsonar.projectName=JuiceShop -Dsonar.sources=src -Dsonar.sourceEncoding=UTF-8"
+                    
+                    script {
+                        def analyses = sh(script: "curl -s '${SONARQUBE_URL}/api/project_analyses/search?project=${PROJECT_KEY}&format=json'", returnStdout: true).trim()
+                        def analysis_id = sh(script: "echo '${analyses}' | grep -oP '\"key\":\"\\K[^\"]+' | head -n 1", returnStdout: true).trim()
+                        sh "curl -o sonar-report.json '${SONARQUBE_URL}/api/qualitygates/project_status?projectKey=${PROJECT_KEY}&analysisId=${analysis_id}'"
+                    }
                 }
             }
         }
