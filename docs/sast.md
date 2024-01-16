@@ -148,7 +148,6 @@ Platforma je usklađena sa bezbednosnim standardima
 [PCI DSS](/docs/pcidss.md), 
 [CWE Top 25](/docs/cwe-top-25.md), i 
 OWASP Top 10 [6].
-TODO: Dodati jos 2 dokumenta za neopisane standarde.
 
 ### Podrška za Java programski jezik
 - Sve verzije do Java 19 su podržane [7]. 
