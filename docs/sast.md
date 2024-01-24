@@ -176,6 +176,11 @@ Pravila se dele u grupe:
     - Brza pomoć se odnosi na pomoć programeru kako bi lakše i brže izmenio deo programskog koda koji sadrži neki problem [14].
     - Postoji ukupno 56 pravila koja detektuju ranjivosti koje se brzo mogu popraviti [8].
 
+### Uočene prednosti i mane SonarQube alata
+Prednosti SonarQube alata su mnogobrojne. U odnosu na druge alate ono po čemu se ističe jeste izuzetno dobra dokumentacija, jednostavnost upotrebe, pristup pojedinačnim pravilima koja su na razumljiv način dokumentovana i sadrže primer koda i objašnjenje koji deo sadrži ranjivost(i).
+
+Jedna ozbiljnija mana koja je primećena jeste mogućnost preuzimanja (engl. download) izveštaja o skeniranju. Integracija SonarQube alata u Jenkins pipeline i pregled rezultata skeniranja u SonarQube alatu je dobro dokumentovana i ivedena u praktičnom delu rada. Međutim uprkos brojnim pokušajima i isprobavanjem različitih načina preuzimanje izveštaja nije uspešno izvedeno u praktičnom delu rada.
+
 ## Veracode
 _Veracode Static Analysis_ predstavlja vodeće rešenje za statičku analizu bezbednosti aplikacija (SAST), pružajući brzo prepoznavanje i rešavanje problema sa bezbednošću aplikacija [19]. 
 Ovaj alat vrši sveobuhvatne analize važnih okvira (_framework_-a) i jezika, bez potrebnog pristupa programskom kodu samog radnog okvira. 
