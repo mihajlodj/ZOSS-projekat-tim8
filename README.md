@@ -6,7 +6,7 @@ Međutim, javljaju se poteškoće u ostvarivanju potpune automatizacije tradicio
 
 Fokus ovog projekta će biti izučavanje i upotreba alata koji omogućavaju sledeće vrste sigurnosnih provera: 
 1. Provera sadržavanja [<i>Git Secrets</i>](/docs/git-secrets.md)-a – da li sam source kod sadrži neku tajnu (secret)
-2. Provera [<i>Source code analysis</i>](/docs/sca.md) – provera ranjivosti u 3rd party bibliotekama koje softver koji razvijamo koristi
+2. Provera [<i>Software Composition Analysis</i>](/docs/sca/sca.md) – provera ranjivosti u 3rd party bibliotekama koje softver koji razvijamo koristi
 3. [<i>Static Application Security Testing</i>](/docs/sast.md) (SAST) - analiza source koda rešenja koje razvijamo kako bi se pronašle ranjivosti
 4. [<i>Dynamic Application Security Testing</i>](/docs/dast.md) (DAST) - simuliranje ponašanja napadača, izvodi se na serveru koji se koristi za testiranje (nakon <i>deploy</i>-ovanja aplikacije)
 
